@@ -23,130 +23,20 @@
     <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Additional Vendor Styles Plugins-->
+    <link rel="stylesheet" media="screen" href="assets/vendor/img-comparison-slider/dist/styles.css"/>
+
     <!-- Vendor Styles -->
     <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
     <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
 
+
     <!-- Main Theme Styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
 
-    <!-- Page loading styles -->
-    <style>
-      .page-loading {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-transition: all .4s .2s ease-in-out;
-        transition: all .4s .2s ease-in-out;
-        background-color: #fff;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 9999;
-      }
-      .dark-mode .page-loading {
-        background-color: #0b0f19;
-      }
-      .page-loading.active {
-        opacity: 1;
-        visibility: visible;
-      }
-      .page-loading-inner {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-        -webkit-transition: opacity .2s ease-in-out;
-        transition: opacity .2s ease-in-out;
-        opacity: 0;
-      }
-      .page-loading.active > .page-loading-inner {
-        opacity: 1;
-      }
-      .page-loading-inner > span {
-        display: block;
-        font-size: 1rem;
-        font-weight: normal;
-        color: #9397ad;
-      }
-      .dark-mode .page-loading-inner > span {
-        color: #fff;
-        opacity: .6;
-      }
-      .page-spinner {
-        display: inline-block;
-        width: 2.75rem;
-        height: 2.75rem;
-        margin-bottom: .75rem;
-        vertical-align: text-bottom;
-        border: .15em solid #b4b7c9;
-        border-right-color: transparent;
-        border-radius: 50%;
-        -webkit-animation: spinner .75s linear infinite;
-        animation: spinner .75s linear infinite;
-      }
-      .dark-mode .page-spinner {
-        border-color: rgba(255,255,255,.4);
-        border-right-color: transparent;
-      }
-      @-webkit-keyframes spinner {
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes spinner {
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-
-    <!-- Theme mode
-    <script>
-      let mode = window.localStorage.getItem('mode'),
-          root = document.getElementsByTagName('html')[0];
-      if (mode !== null && mode === 'dark') {
-        root.classList.add('dark-mode');
-      } else {
-        root.classList.remove('dark-mode');
-      }
-    </script>
-    -->
-
-    <!-- Page loading scripts -->
-    <script>
-      (function () {
-        window.onload = function () {
-          const preloader = document.querySelector('.page-loading');
-          preloader.classList.remove('active');
-          setTimeout(function () {
-            preloader.remove();
-          }, 1000);
-        };
-      })();
-    </script>
-  </head>
-
-
   <!-- Body -->
   <body>
-
-    <!-- Page loading spinner -->
-    <div class="page-loading active">
-      <div class="page-loading-inner">
-        <div class="page-spinner"></div><span>Loading...</span>
-      </div>
-    </div>
-
 
     <!-- Page wrapper for sticky footer -->
     <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
@@ -292,11 +182,7 @@
               </a>
             </div>      
           </div>
-          <!--<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
-            <input type="checkbox" class="form-check-input" id="theme-mode">
-            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
-            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
-          </div>-->
+
           <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -307,38 +193,43 @@
         </div>
       </header>
 
-
 <!-- Hero -->
 <section class="position-relative pt-md-3 pt-lg-5 mb-md-4 mb-lg-5">
   <div class="container position-relative zindex-5 pt-5">
-    <div class="row mt-4 pt-2">
-      <div class="col-xl-4 col-lg-5 text-center text-lg-start pb-1 pb-md-2 pb-lg-0">
+    <div class="row mt-4 pt-2 g-md-5">
+      <div class="col-xl-4 col-lg-5 text-center text-lg-start pb-2 pb-md-2 pb-lg-0">
         <h1 class="display-3 pb-md-4 pb-lg-4">Reeducação Alimentar Já!</h1>
-        <p class="fs-5">Com apoio profissional</p>
+        <p class="fs-5">Com apoio de <strong>Nutricionistas</strong><br> e <strong>Psicólogas</strong>.</p>
+      </div>
+      <div class="position-relative rounded-3 overflow-hidden mb-lg-3">
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center zindex-5">
+          <a href="https://www.youtube.com/watch?v=AYnnwCS-9pU" class="btn btn-video btn-icon btn-xl stretched-link bg-white" data-bs-toggle="video">
+            <i class="bx bx-play"></i>
+          </a>
+        </div>
+        <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35"></span>
+        <img src="assets/img/landing/medical/hero-video-thumbnail.jpg" alt="Como funciona">
       </div>
       <div class="col-xl-4 col-lg-5 d-flex flex-column justify-content-center align-items-center pb-sm-2 pb-md-4">
-        <a href="https://www.youtube.com/watch?v=AYnnwCS-9pU" class="btn btn-lg btn-primary mt-lg-4 mt-1 mb-2" data-bs-toggle="video">
-          Assistir Vídeo
-          <i class="bx bx-play ms-1 lead"></i>
-        </a>
+        <a href="#" class="btn btn-primary shadow-primary btn-lg mt-3">Agendar Avaliação<i class='bx bxl-whatsapp ms-1 fs-3'></i></a>
       </div>
     </div>
   </div>
 </section>
   
 
-      <!-- Icon boxes (Features) -->
-      <section class="container py-4 mb-2 mb-md-4 mb-lg-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4 pt-2 pt-md-4 pb-lg-2">
+<!-- Icon boxes (Features) -->
+  <section class="container py-4 mb-2 mb-md-4 mb-lg-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4 pt-2 pt-md-4 pb-lg-2">
 
 <!-- Item -->
 <div class="col">
-  <div class="row position-relative">
+  <div class="row position-relative" style="margin-top: +10%;">
     <div class="col-md-6 d-flex justify-content-center"> <!-- Image -->
       <picture>
         <source srcset="assets/img/landing/medical/blissful-female-doctor-looking-set-x-rays-EDITED-PREPARED.avif" type="image/avif">
         <source srcset="assets/img/landing/medical/blissful-female-doctor-looking-set-x-rays-EDITED-PREPARED.webp" type="image/webp">
-        <img src="assets/img/landing/medical/blissful-female-doctor-looking-set-x-rays-EDITED-PREPARED.jpg" width="250" alt="Nutricionista" class="rounded-3 shadow-primaryt-2 mb-2">
+        <img src="assets/img/landing/medical/blissful-female-doctor-looking-set-x-rays-EDITED-PREPARED.jpg" width="250" alt="Nutricionista" class="rounded-3 shadow-primary mb-2">
       </picture>
     </div>
     <div class="col-md-6 d-flex" style="transform: translateY(-50%);"> <!-- Card -->
@@ -347,7 +238,7 @@
             <h3 class="h4 mb-2">Consulta Mensal</h3>
             <p class="fs-md mb-1">Sua nutricionista faz seus cardápios, estratégias e exames <strong>personalizados</strong>.</p>
             <a href="#" class="btn btn-link stretched-link px-0">
-              Mais detalhes
+              Saiba mais
               <i class="bx bx-right-arrow-alt fs-xl ms-1"></i>
             </a>
         </div>
@@ -356,73 +247,304 @@
   </div>
 </div>
 
-
 <!-- Item -->
 <div class="col">
-  <div class="card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-0 h-100">
-    <picture>
-      <source srcset="assets/img/landing/medical/terapia-em-grupo-real-EDITED.avif" type="image/avif">
-      <source srcset="assets/img/landing/medical/terapia-em-grupo-real-EDITED.webp" type="image/webp">
-      <img src="assets/img/landing/medical/terapia-em-grupo-real-EDITED.jpg" width="200" alt="Nutricionista" class="img-thumbnail mt-2 mb-2">
-    </picture>
-    <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
-      <h3 class="h5 mb-2 mt-n4 mt-sm-0 mt-md-n4 mt-xxl-0">Terapia em Grupo</h3>
-      <p class="fs-sm mb-1">Sua psicóloga vai te ensinar a manter a mente <strong>direcionada</strong> para o sucesso.</p>
-      <a href="#" class="btn btn-link stretched-link px-0">
-        Mais detalhes
-        <i class="bx bx-right-arrow-alt fs-xl ms-1"></i>
-      </a>
+  <div class="row position-relative" style="margin-top: -20%;">
+    <div class="col-md-6 d-flex justify-content-center"> <!-- Image -->
+      <picture>
+        <source srcset="assets/img/landing/medical/terapia-em-grupo-real-EDITED.avif" type="image/avif">
+        <source srcset="assets/img/landing/medical/terapia-em-grupo-real-EDITED.webp" type="image/webp">
+        <img src="assets/img/landing/medical/terapia-em-grupo-real-EDITED.jpg" width="250" alt="Terapia" class="rounded-3 shadow-primary mb-2">
+      </picture>
     </div>
-  </div>
-</div>
-
-<!-- Item -->
-<div class="col">
-  <div class="card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-0 h-100">
-    <picture>
-      <source srcset="assets/img/landing/medical/woman-hand-holding-smartphone-touching-blank-screen-EDITED.avif" type="image/avif">
-      <source srcset="assets/img/landing/medical/woman-hand-holding-smartphone-touching-blank-screen-EDITED.webp" type="image/webp">
-      <img src="assets/img/landing/medical/woman-hand-holding-smartphone-touching-blank-screen-EDITED.jpg" width="200" alt="Nutricionista" class="img-thumbnail mt-2 mb-2">
-    </picture>
-    <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
-      <h3 class="h5 mb-2 mt-n4 mt-sm-0 mt-md-n4 mt-xxl-0">Suporte Diário</h3>
-      <p class="fs-sm mb-1">Grupo no Whatsapp® parar tirar todas as suas dúvidas com <strong>profissionais</strong>.</p>
-      <a href="#" class="btn btn-link stretched-link px-0">
-        Mais detalhes
-        <i class="bx bx-right-arrow-alt fs-xl ms-1"></i>
-      </a>
-    </div>
-  </div>
-</div>
-
-<section class="container pb-5 mb-1 mb-md-4 mb-lg-5">
-  <div class="row pb-xl-3">
-    <div class="col-md-6 pb-2 pb-md-0 mb-4 mb-md-0">
-      <div class="gallery rounded-3 shadow-sm">
-        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17239.8060668495!2d-122.43668227971098!3d37.741526659411576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e1259a3ed73%3A0xaae7371cd8db1e38!2sNoe%20Valley%20Bakery!5e0!3m2!1sen!2sua!4v1637757959377!5m2!1sen!2sua" data-iframe="true" class="gallery-item rounded-3" data-sub-html='<h6 class="fs-sm text-light">Noe Valley Bakery 24th Street, San Francisco, CA, USA</h6>'>
-          <i class="bx bxs-map text-primary display-5 position-absolute top-50 start-50 translate-middle mb-0"></i>
-          <img src="assets/img/landing/medical/map.jpg" alt="Mapa">
-          <div class="gallery-item-caption fs-sm fw-medium">Expandir Mapa</div>
-        </a>
+    <div class="col-md-6 d-flex" style="transform: translateY(-50%);"> <!-- Card -->
+      <div class="card shadow border-0 mx-auto" style="max-width: 85%;">
+          <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
+            <h3 class="h4 mb-2">Terapia em Grupo</h3>
+            <p class="fs-md mb-1">Sua psicóloga vai te ensinar a manter a mente <strong>focada</strong> no sucesso.</p>
+        </div>
       </div>
     </div>
-    <div class="col-xl-5 col-md-6 offset-xl-1">
-      <h2 class="h1 pb-4 mb-1 mb-lg-3 text-center">Avaliação Gratuita</h2>
-      <ul class="list-unstyled pb-3 mb-0 mb-lg-3">
-        <li class="d-flex justify-content-center mb-3">
-          <i class="bx bx-map text-muted fs-xl mt-1 me-2"></i>
-          Av. Almirante Cochrane, 194 – Sala 91<br> Santos-SP.
-        </li>
-      </ul>
+  </div>
+</div>
+
+<!-- Item -->
+<div class="col">
+  <div class="row position-relative" style="margin-top: -10%;">
+    <div class="col-md-6 d-flex justify-content-center"> <!-- Image -->
+      <picture>
+        <source srcset="assets/img/landing/medical/suporte-PREPARED.avif" type="image/avif">
+        <source srcset="assets/img/landing/medical/suporte-PREPARED.webp" type="image/webp">
+        <img src="assets/img/landing/medical/suporte-PREPARED.jpg" width="250" alt="Suporte" class="rounded-3 shadow-primary mb-2">
+      </picture>
+    </div>
+    <div class="col-md-6 d-flex" style="transform: translateY(-50%);"> <!-- Card -->
+      <div class="card shadow border-0 mx-auto" style="max-width: 85%;">
+          <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
+            <h3 class="h4 mb-2">Suporte Diário</h3>
+            <p class="fs-md mb-1">Grupo no Whatsapp® parar tirar todas as suas dúvidas com <strong>profissionais</strong>.</p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-xl-4 col-lg-5 d-flex flex-column justify-content-center align-items-center pb-sm-2 pb-md-4">
-    <a href="https://www.youtube.com/watch?v=AYnnwCS-9pU" class="btn btn-lg btn-primary mt-lg-4 mb-2">
-      Agende um horário já!
-    </a>
-  </div>
-</section>
+</div>
 
+      <!-- Testimonials (Carousel) -->
+      <section class="bg-secondary py-5 mb-2 mb-md-4 mb-lg-5">
+        <div class="container pt-lg-4">
+          <h2 class="h1 text-center pb-0 pb-md-2 pb-xl-4">+ de 60 toneladas eliminadas</h2>
+        </div>
+        <div class="pb-lg-3 px-2 px-sm-0">
+          <div class="swiper" data-swiper-options='{
+            "slidesPerView": 1,
+            "centeredSlides": true,
+            "spaceBetween": 8,
+            "loop": true,
+            "tabs": true,
+            "allowTouchMove": false,
+            "navigation": {
+              "prevEl": "#testimonial-prev",
+              "nextEl": "#testimonial-next"
+            },
+            "breakpoints": {
+              "500": {
+                "slidesPerView": 2,
+                "spaceBetween": 24
+              },
+              "1000": {
+                "slidesPerView": 4,
+                "spaceBetween": 24
+              },
+              "1500": {
+                "slidesPerView": 6,
+                "spaceBetween": 24
+              }
+            }
+          }'>
+           
+          
+        <div class="swiper-wrapper">
+              <!-- Item -->
+              <div class="swiper-slide h-auto pt-4">
+                <!-- Image comparison slider example -->
+                <div class="d-flex align-items-stretch">
+                  <img-comparison-slider class="h-100 w-100">
+                      <figure slot="first" class="position-relative">
+                          <img src="assets/img/testimonials/giselle-antes.jpg" alt="Antes" class="w-100 h-100">
+                          <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
+                      </figure>
+                      <figure slot="second" class="position-relative">
+                          <img src="assets/img/testimonials/giselle-depois.jpg" alt="Depois" class="w-100 h-100">
+                          <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
+                      </figure>
+                      <div slot="handle">
+                        <svg class="text-primary shadow-primary rounded-circle" width="36" height="36" viewBox="0 0 36 36">
+                          <g>
+                            <circle fill="currentColor" cx="18" cy="18" r="18"/>
+                          </g>
+                          <path fill="#fff" d="M22.2,17.2h-8.3v-3.3L9.7,18l4.2,4.2v-3.3h8.3v3.3l4.2-4.2l-4.2-4.2V17.2z"/>
+                        </svg>
+                      </div>
+                  </img-comparison-slider>
+                </div>
+                <div class="card h-100 position-relative border-0 shadow-sm pt-1">
+                  <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                    <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-4">
+                      <h6 class="fs-3 fw-bold mb-0">Giselle</h6>
+                      <p class="mb-0">Dieta Vitória é Dieta Delícia! Emagreci sem passar fome.</p>
+                    </blockquote>
+                  </div>
+                </figure>
+              </div>
+
+              <!-- Item -->
+                <div class="swiper-slide h-auto pt-4">
+                <!-- Image comparison slider example -->
+                <div class="d-flex align-items-stretch">
+                  <img-comparison-slider class="h-100 w-100">
+                      <figure slot="first" class="position-relative">
+                          <img src="assets/img/testimonials/carlos-antes.jpg" alt="Antes" class="w-100 h-100">
+                          <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
+                      </figure>
+                      <figure slot="second" class="position-relative">
+                          <img src="assets/img/testimonials/carlos-depois.jpg" alt="Depois" class="w-100 h-100">
+                          <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
+                      </figure>
+                      <div slot="handle">
+                        <svg class="text-primary shadow-primary rounded-circle" width="36" height="36" viewBox="0 0 36 36">
+                          <g>
+                            <circle fill="currentColor" cx="18" cy="18" r="18"/>
+                          </g>
+                          <path fill="#fff" d="M22.2,17.2h-8.3v-3.3L9.7,18l4.2,4.2v-3.3h8.3v3.3l4.2-4.2l-4.2-4.2V17.2z"/>
+                        </svg>
+                      </div>
+                  </img-comparison-slider>
+                </div>
+                <div class="card h-100 position-relative border-0 shadow-sm pt-1">
+                  <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                    <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-0">
+                      <h6 class="fs-3 fw-bold mb-0">Carlos</h6>
+                      <p class="mb-0">Id mollis consectetur congue egestas egestas suspendisse blandit justo.</p>
+                    </blockquote>
+                  </div>
+                </figure>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pt-4">
+                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                      <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-0">
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </blockquote>
+                    <div class="card-footer border-0 text-nowrap pt-0">
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bx-star text-muted opacity-75"></i>
+                    </div>
+                  </div>
+                  <figcaption class="d-flex align-items-center ps-4 pt-4">
+                    <img src="assets/img/avatar/31.jpg" width="48" class="rounded" alt="Annette Black">
+                    <div class="ps-3">
+                      <h6 class="fs-sm fw-semibold mb-0">Annette Black</h6>
+                      <span class="fs-xs text-muted">Medical Center patient</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pt-4">
+                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                      <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-0">
+                      <p class="mb-0">Etiam augue ante, imperdiet et nunc sed, bibendum faucibus est.</p>
+                    </blockquote>
+                    <div class="card-footer border-0 text-nowrap pt-0">
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bx-star text-muted opacity-75"></i>
+                      <i class="bx bx-star text-muted opacity-75"></i>
+                    </div>
+                  </div>
+                  <figcaption class="d-flex align-items-center ps-4 pt-4">
+                    <img src="assets/img/avatar/34.jpg" width="48" class="rounded" alt="Jerome Bell">
+                    <div class="ps-3">
+                      <h6 class="fs-sm fw-semibold mb-0">Jerome Bell</h6>
+                      <span class="fs-xs text-muted">Medical Center patient</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pt-4">
+                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                      <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-0">
+                      <p class="mb-0">Pellentesque finibus congue egestas egestas suspendisse blandit justo.</p>
+                    </blockquote>
+                    <div class="card-footer border-0 text-nowrap pt-0">
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bx-star text-muted opacity-75"></i>
+                    </div>
+                  </div>
+                  <figcaption class="d-flex align-items-center ps-4 pt-4">
+                    <img src="assets/img/avatar/35.jpg" width="48" class="rounded" alt="Albert Flores">
+                    <div class="ps-3">
+                      <h6 class="fs-sm fw-semibold mb-0">Albert Flores</h6>
+                      <span class="fs-xs text-muted">Medical Center patient</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pt-4">
+                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                      <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-0">
+                      <p class="mb-0">Nulla volutpat consectetur congue egestas egestas uni suspendisse blandit parturient.</p>
+                    </blockquote>
+                    <div class="card-footer border-0 text-nowrap pt-0">
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                    </div>
+                  </div>
+                  <figcaption class="d-flex align-items-center ps-4 pt-4">
+                    <img src="assets/img/avatar/33.jpg" width="48" class="rounded" alt="Jenny Wilson">
+                    <div class="ps-3">
+                      <h6 class="fs-sm fw-semibold mb-0">Jenny Wilson</h6>
+                      <span class="fs-xs text-muted">Medical Center patient</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pt-4">
+                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                      <i class="bx bxs-quote-left"></i>
+                    </span>
+                    <blockquote class="card-body pb-3 mb-0">
+                      <p class="mb-0">Vivamus iaculis facilisis pretium. Pellentesque vitae mi odio. Donec imperdiet pellentesque ipsum quis pharetra. Nullam dolor sem.</p>
+                    </blockquote>
+                    <div class="card-footer border-0 text-nowrap pt-0">
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bx-star text-muted opacity-75"></i>
+                    </div>
+                  </div>
+                  <figcaption class="d-flex align-items-center ps-4 pt-4">
+                    <img src="assets/img/avatar/37.jpg" width="48" class="rounded" alt="Cameron Williamson">
+                    <div class="ps-3">
+                      <h6 class="fs-sm fw-semibold mb-0">Cameron Williamson</h6>
+                      <span class="fs-xs text-muted">Medical Center patient</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slider prev/next buttons -->
+        <div class="d-flex justify-content-center my-0 pb-3 mb-3 position-relative" style="transform: translateY(-30%); z-index: 1">
+          <button type="button" id="testimonial-prev" class="btn btn-primary btn-icon btn-xl rounded-circle me-2"><i class="bx bx-chevron-left"></i></button>
+          <button type="button" id="testimonial-next" class="btn btn-primary btn-icon btn-xl rounded-circle ms-2"><i class="bx bx-chevron-right"></i></button>
+        </div>
+        <p class="text-center fs-sm">Resultados podem variar.</p>
+      </section>
+      
+ 
       <!-- Video showreel -->
       <section class="container text-center pb-4 mb-3 mb-md-4 mb-lg-5">
         <h2 class="h1 pt-3 mb-4">See What Makes Us Different</h2>
@@ -926,242 +1048,6 @@
       </section>
 
 
-      <!-- Testimonials (Carousel) -->
-      <section class="bg-secondary py-5 mb-2 mb-md-4 mb-lg-5">
-        <div class="container pt-lg-4 mt-1">
-          <h2 class="h1 text-center pb-3 pb-md-4 pb-xl-5">What Our Patients Say</h2>
-        </div>
-        <div class="pb-lg-3 px-2 px-sm-0">
-          <div class="swiper" data-swiper-options='{
-            "slidesPerView": 1,
-            "centeredSlides": true,
-            "spaceBetween": 8,
-            "loop": true,
-            "pagination": {
-              "el": ".swiper-pagination",
-              "clickable": true
-            },
-            "breakpoints": {
-              "500": {
-                "slidesPerView": 2,
-                "spaceBetween": 24
-              },
-              "1000": {
-                "slidesPerView": 4,
-                "spaceBetween": 24
-              },
-              "1500": {
-                "slidesPerView": 6,
-                "spaceBetween": 24
-              }
-            }
-          }'>
-            <div class="swiper-wrapper">
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Id mollis consectetur congue egestas egestas suspendisse blandit justo. Tellus augue commodo id quis tempus etiam pulvinar at maecenas.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/30.jpg" width="48" class="rounded" alt="Fannie Summers">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Fannie Summers</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Phasellus luctus nisi id orci condimentum, at cursus nisl vestibulum. Orci varius natoque penatibus et magnis dis parturient montes.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/32.jpg" width="48" class="rounded" alt="Robert Fox">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Robert Fox</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum odio, bibendum ornare mi at, efficitur urna.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/31.jpg" width="48" class="rounded" alt="Annette Black">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Annette Black</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Etiam augue ante, imperdiet et nunc sed, bibendum faucibus est. Suspendisse egestas facilisis erat eu eleifend.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/34.jpg" width="48" class="rounded" alt="Jerome Bell">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Jerome Bell</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Pellentesque finibus congue egestas egestas suspendisse blandit justo. Tellus augue commodo id quis tempus etiam pulvinar at maecenas.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/35.jpg" width="48" class="rounded" alt="Albert Flores">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Albert Flores</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Nulla volutpat consectetur congue egestas egestas uni suspendisse blandit parturient.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/33.jpg" width="48" class="rounded" alt="Jenny Wilson">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Jenny Wilson</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
-                <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
-                  <div class="card h-100 position-relative border-0 shadow-sm pt-4">
-                    <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                      <i class="bx bxs-quote-left"></i>
-                    </span>
-                    <blockquote class="card-body pb-3 mb-0">
-                      <p class="mb-0">Vivamus iaculis facilisis pretium. Pellentesque vitae mi odio. Donec imperdiet pellentesque ipsum quis pharetra. Nullam dolor sem.</p>
-                    </blockquote>
-                    <div class="card-footer border-0 text-nowrap pt-0">
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bxs-star text-warning"></i>
-                      <i class="bx bx-star text-muted opacity-75"></i>
-                    </div>
-                  </div>
-                  <figcaption class="d-flex align-items-center ps-4 pt-4">
-                    <img src="assets/img/avatar/37.jpg" width="48" class="rounded" alt="Cameron Williamson">
-                    <div class="ps-3">
-                      <h6 class="fs-sm fw-semibold mb-0">Cameron Williamson</h6>
-                      <span class="fs-xs text-muted">Medical Center patient</span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-
-            <!-- Pagination (bullets) -->
-            <div class="swiper-pagination position-relative pt-1 pt-sm-3 mt-5"></div>
-          </div>
-        </div>
-      </section>
-
-
       <!-- Latest news -->
       <section class="container py-5 mb-1 mb-md-4 mb-lg-5">
         <h2 class="h1 text-center pt-1 pb-4 mb-1 mb-lg-3">Latest News &amp; Healthy Tips</h2>
@@ -1338,7 +1224,7 @@
 
 
 <!-- Success solid icon button -->
-<div class="position-fixed bottom-0 end-0 p-4">
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
   <!--<a href="https://www.dietavitoria.com.br/redirect_pixel_lead.php">-->
     <button class="btn btn-success btn-icon rounded-circle" type="button">
       <i class="bx bxl-whatsapp" style="font-size: 1.5rem;"></i>
@@ -1353,12 +1239,12 @@
         <div class="row pb-5">
           <div class="col-lg-4 col-md-6">
             <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
-              <img src="assets/img/logotipo_redondo.svg" width="47" alt="DV">
-              Silicon
+              <img src="assets/img/logotipo_redondo.png" width="47" alt="DV">
+              Dieta Vitória
             </div>
-            <p class="fs-sm pb-lg-3 mb-4">Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit. Non feugiat feugiat egestas nulla nec. Arcu tempus, eget elementum dolor ullamcorper sodales ultrices eros.</p>
+            <p class="fs-sm pb-lg-3 mb-4">A Dieta Vitória é uma Clínica de Nutrição focada em Reeducação Alimentar, onde você emagrece com apoio de Nutricionistas e Psicólogas.</p>
             <form class="needs-validation" novalidate>
-              <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
+              <label for="subscr-email" class="form-label">Se inscreva na nossa lista de emails</label>
               <div class="input-group">
                 <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Your email" required>
                 <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
@@ -1399,8 +1285,8 @@
                 </div>
               </div>
               <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
-                <h6 class="mb-2">Contact Us</h6>
-                <a href="mailto:email@example.com" class="fw-medium">email@example.com</a>
+                <h6 class="mb-2">Fale conosco</h6>
+                <a href="mailto:email@example.com" class="fw-medium">contato@dietavitoria.com.br</a>
               </div>
             </div>
           </div>
@@ -1411,14 +1297,6 @@
         </p>
       </div>
     </footer>
-
-
-    <!-- Back to top button
-    <a href="#top" class="btn-scroll-top" data-scroll>
-      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
-      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
-    </a> -->
-
 
     <!-- Vendor Scripts -->
     <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1432,5 +1310,9 @@
 
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+
+    <!-- Additional Vendor Scripts -->
+    <script src="assets/vendor/img-comparison-slider/dist/index.js"></script>
+
   </body>
 </html>
