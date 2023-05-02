@@ -42,14 +42,17 @@ const carousel = (() => {
 
 
     // Tabs (linked content)
-    if(userOptions.tabs) {
-
+    if (userOptions.tabs) {
       swiper.on('activeIndexChange', (e) => {
-        let targetTab = document.querySelector(e.slides[e.activeIndex].dataset.swiperTab),
-            previousTab = document.querySelector(e.slides[e.previousIndex].dataset.swiperTab);
+        let targetTab = document.querySelector(e.slides[e.activeIndex].dataset.swiperTab);
+        let previousTab = document.querySelector(e.slides[e.previousIndex].dataset.swiperTab);
 
-        previousTab.classList.remove('active');
-        targetTab.classList.add('active');
+        if (previousTab) {
+          previousTab.classList.remove('active');
+        }
+        if (targetTab) {
+          targetTab.classList.add('active');
+        }
       });
     }
 
