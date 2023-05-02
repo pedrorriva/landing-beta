@@ -4,20 +4,18 @@
  */
 
 const stickyWhatsAppBtn = (() => {
-  let whatsappBtn = document.getElementById("whatsappBtn");
-  if (whatsappBtn === null) return;
-
-  let scrollOffset = 500;
-  let appearedOnce = false;
-
-  window.addEventListener("scroll", (e) => {
-    if (e.currentTarget.pageYOffset > scrollOffset) {
-      whatsappBtn.classList.remove("whatsapp-btn-hidden");
-      appearedOnce = true;
-    } else if (!appearedOnce) {
-      whatsappBtn.classList.add("whatsapp-btn-hidden");
-    }
-  });
-})();
-
-export default stickyWhatsAppBtn;
+    let whatsappBtn = document.getElementById("whatsappBtn");
+    if (whatsappBtn === null) return;
+  
+    let scrollOffset = 500;
+  
+    window.addEventListener("scroll", (e) => {
+      if (e.currentTarget.pageYOffset > scrollOffset) {
+        whatsappBtn.classList.remove("whatsapp-btn-hidden");
+      } else {
+        whatsappBtn.classList.add("whatsapp-btn-hidden");
+      }
+    });
+  })();
+  
+  export default stickyWhatsAppBtn;
