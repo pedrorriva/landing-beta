@@ -9,6 +9,7 @@
 
 //import themeModeSwitch from './components/theme-mode-switch'
 import stickyNavbar from './components/sticky-navbar'
+import stickyWhatsAppBtn from './components/sticky-whatsapp-btn'
 import smoothScroll from './components/smooth-scroll'
 //import scrollTopButton from './components/scroll-top-button'
 //import passwordVisibilityToggle from './components/password-visibility-toggle'

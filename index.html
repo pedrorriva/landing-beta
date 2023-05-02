@@ -34,6 +34,13 @@
 
     <!-- Main Theme Styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+    <style>
+      .whatsapp-btn-hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.4s, transform 0.4s;
+      }
+    </style>
 
   <!-- Body -->
   <body>
@@ -670,8 +677,8 @@
 
     </main>
 
-<!-- Success solid icon button -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+<!-- Floating Whatsapp button -->
+<div id="whatsappBtn" class="position-fixed bottom-0 end-0 p-3 whatsapp-btn whatsapp-btn-hidden" style="z-index: 9999">
   <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php">
     <button class="btn btn-success btn-icon rounded-circle" type="button">
       <i class="bx bxl-whatsapp" style="font-size: 1.5rem;"></i>
