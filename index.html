@@ -35,6 +35,16 @@
 
 <!--custom shit that shouldnt be here-->
 <style>
+  .whatsapp-btn {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.whatsapp-btn-visible {
+  opacity: 1;
+}
+
+
 .avatar-container {
   position: relative;
 }
@@ -94,7 +104,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Perguntas Frequentes</a>
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Dúvidas</a>
                   <div class="dropdown-menu p-0">
                     <div class="d-lg-flex">
                       <div class="mega-dropdown-column mx-2 mb-2 pt-lg-3 pb-lg-4">
@@ -184,33 +194,55 @@
 <section class="position-relative pt-md-3 pt-lg-5 mb-md-4 mb-lg-5">
   <div class="container position-relative zindex-5 pt-5">
     <div class="row mt-4 pt-2 g-md-5">
-      <div class="col-xl-4 col-lg-5 text-center text-lg-start pb-2 pb-md-2 pb-lg-0">
+      <div class="col-xl-4 col-lg-5 text-center text-lg-start pb-md-2 pb-lg-0">
         <h1 class="display-3 pb-md-4 pb-lg-4">Reeducação Alimentar Já!</h1>
-        <p class="fs-5">Com apoio de <br><strong>Nutricionistas</strong><br> e <strong>Psicólogas</strong>.</p>
-      </div>
-      <div class="position-relative rounded-3 overflow-hidden mb-lg-3">
-        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center zindex-5">
-          <a href="https://www.youtube.com/watch?v=AYnnwCS-9pU" class="btn btn-video btn-icon btn-xl stretched-link bg-white" data-bs-toggle="video">
-            <i class="bx bx-play"></i>
-          </a>
+
+        <div class="card shadow-primary mb-3">
+          <p class="fs-4 m-0 py-3">Consulta Mensal com <br><strong>Nutricionista</strong></p>
         </div>
-        <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35"></span>
-        <img src="assets/img/landing/medical/hero-video-thumbnail.jpg" alt="Como funciona">
-      </div>
-      <div class="col-xl-4 col-lg-5 d-flex flex-column justify-content-center align-items-center pb-sm-2 pb-md-4">
-        <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php" class="btn btn-primary shadow-primary btn-lg mt-3">Agendar Avaliação<i class='bx bxl-whatsapp ms-1 fs-3'></i></a>
+        <i class='bx bxs-plus-circle bx-burst py-3 text-primary' style="font-size: 30px;"></i>
+        <div class="card shadow-primary">
+          <p class="fs-4 m-0 py-3">Terapia em Grupo com <strong>Psicóloga</strong></p>
+        </div>
+        <p class="text-primary mt-3">Por apenas R$170 ao mês!</p>
+        <div class="col-xl-4 col-lg-5 d-flex flex-column justify-content-center align-items-center pb-sm-2 pb-md-4">
+          <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php" class="btn btn-primary shadow-primary btn-lg mt-3">Agendar Avaliação<i class='bx bxl-whatsapp ms-1 fs-3'></i></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
-  
+ 
 
 <!-- Icon boxes (Features) -->
   <section class="container py-4 mb-2 mb-md-4 mb-lg-5">
   <div class="row row-cols-1 row-cols-md-3 g-4 pt-2 pt-md-4 pb-lg-2">
+    <p class="fs-1 text-grey text-center pt-4 mb-1">Como Funciona</p><br>
+    <i class='bx bxs-down-arrow-circle bx-tada bx-tada text-center text-primary fs-1 my-0 opacity-60'></i>
+    <div class="position-relative rounded-3 overflow-hidden mb-lg-3">
+      <div class="position-absolute top-0 start-0 w-100 h-100 zindex-5">
+        <div class="d-flex align-items-center justify-content-center h-100">
+          <a href="https://www.youtube.com/watch?v=AYnnwCS-9pU" class="btn btn-video btn-icon btn-xl stretched-link bg-white" data-bs-toggle="video">
+            <i class="bx bx-play"></i>
+          </a>
+        </div>
+      </div>
 
+      
+      <div class="position-absolute top-0 start-0 w-100 h-100 zindex-4 bg-white opacity-50"></div>
+    
+      <div class="position-relative">
+        <picture>
+          <source srcset="assets/img/landing/medical/hero-video-thumbnail.avif" type="image/avif">
+          <source srcset="assets/img/landing/medical/hero-video-thumbnail.webp" type="image/webp">
+          <img src="assets/img/landing/medical/hero-video-thumbnail.jpg" alt="Como Funciona" class="rounded-3 w-100 h-100">
+        </picture>
+      </div>
+    </div>
+    <p class="text-grey opacity-75 text-center">Conheça nosso programa</p>
+    
 <!-- Item -->
-<div class="col">
+<div class="col" id="item-um">
   <div class="row position-relative" style="margin-top: +10%;">
     <div class="col-md-6 d-flex justify-content-center"> <!-- Image -->
       <picture>
@@ -224,10 +256,7 @@
           <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
             <h3 class="h4 mb-2">Consulta Mensal</h3>
             <p class="fs-md mb-1">Sua nutricionista faz seus cardápios, estratégias e exames <strong>personalizados</strong>.</p>
-            <!--<a href="#" class="btn btn-link stretched-link px-0">
-              Saiba mais
-              <i class="bx bx-right-arrow-alt fs-xl ms-1"></i>
-            </a>-->
+
         </div>
       </div>
     </div>
@@ -702,7 +731,7 @@
     </main>
 
 <!-- Floating Whatsapp button -->
-<div id="whatsappBtn" class="position-fixed bottom-0 end-0 p-3 whatsapp-btn whatsapp-btn-hidden" style="z-index: 9999">
+<div id="whatsappBtn" class="position-fixed bottom-0 end-0 p-3 whatsapp-btn" style="z-index: 9999">
   <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php">
     <button class="btn btn-success btn-icon rounded-circle" type="button">
       <i class="bx bxl-whatsapp" style="font-size: 1.5rem;"></i>
@@ -721,15 +750,6 @@
               Dieta Vitória
             </div>
             <p class="fs-sm pb-lg-3 mb-4">A Dieta Vitória é uma Clínica de Nutrição focada em Reeducação Alimentar, onde você emagrece com apoio de Nutricionistas e Psicólogas.</p>
-            <!--<form class="needs-validation" novalidate>
-              <label for="subscr-email" class="form-label">Se inscreva na nossa lista de emails</label>
-              <div class="input-group">
-                <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Seu Email" required>
-                <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
-                <div class="invalid-tooltip position-absolute top-100 start-0">Forneça um email válido.</div>
-                <button type="submit" class="btn btn-primary">Assinar</button>
-              </div>
-            </form>-->
           </div>
           <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
             <div id="footer-links" class="row">
@@ -766,6 +786,34 @@
 
     <!-- Additional Vendor Scripts -->
     <script src="assets/vendor/img-comparison-slider/dist/index.js"></script>
+
+    <!-- Floating Whatsapp button -->
+    <div id="whatsappBtn" class="position-fixed bottom-0 end-0 p-3 whatsapp-btn whatsapp-btn-hidden" style="z-index: 9999">
+      <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php">
+        <button class="btn btn-success btn-icon rounded-circle" type="button">
+          <i class="bx bxl-whatsapp" style="font-size: 1.5rem;"></i>
+        </button>
+      </a>
+    </div>
+
+    <script>
+      // Sticky WhatsApp Button
+      // Enable sticky behavior of WhatsApp button on page scroll
+      (function stickyWhatsAppBtn() {
+        let whatsappBtn = document.getElementById("whatsappBtn");
+        if (whatsappBtn === null) return;
+      
+        let scrollOffset = 500;
+      
+        window.addEventListener("scroll", (e) => {
+          if (e.currentTarget.pageYOffset > scrollOffset) {
+            whatsappBtn.classList.add("whatsapp-btn-visible");
+          } else {
+            whatsappBtn.classList.remove("whatsapp-btn-visible");
+          }
+        });
+      })();
+    </script>    
 
   </body>
 </html>
