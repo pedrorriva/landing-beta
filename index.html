@@ -90,11 +90,11 @@
       <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
       <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
         <div class="container px-3">
-          <a href="index.html" class="navbar-brand pe-3">
+          <a href="index.html" class="navbar-brand">
             <picture>
               <source srcset="assets/img/logo-header.avif" type="image/avif">
               <source srcset="assets/img/logo-header.webp" type="image/webp">
-              <img src="assets/img/logo-header.gif" width="130" alt="Dieta Vitóriar" class="rounded-3 w-100 h-100" loading="lazy">
+              <img src="assets/img/logo-header.gif" width="130" alt="Dieta Vitóriar" class="rounded-3 w-100 h-100">
             </picture>
           </a>
           <div id="navbarNav" class="offcanvas offcanvas-end">
@@ -201,7 +201,7 @@
         }
         
         .img-fluid {
-          animation: 2s ease-out 0s 1 slideInFromLeft;
+          animation: 1s ease-out 0s 1 slideInFromLeft;
           min-height: 320px; /* This sets a minimum height for the image */
           object-fit: cover; /* This will ensure the aspect ratio of the image is maintained */
           z-index: 1;
@@ -209,7 +209,7 @@
         }
         
         .card-container {
-          animation: 2s ease-out 0s 1 slideInFromRight;
+          animation: 1s ease-out 0s 1 slideInFromRight;
           position: relative;
           z-index: 3;
           margin-left: -10%; /* Overlap the image*/
@@ -261,7 +261,6 @@
         <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php"
          class="btn btn-primary shadow-primary btn-lg mb-2">Avaliação Gratuita <i class="bx bxl-whatsapp ms-1 fs-3"></i></a>
       </div>
-      <span class="text-primary" style="font-size:small">Unidade Santos/SP</span>
     </div>
   </div>
 </section>
@@ -288,7 +287,7 @@
     </div>
   </div>
   <p class="text-grey opacity-90 text-center">Assista ao vídeo explicativo</p>
-  <p class="fs-1 text-grey text-center">Programa Completo<i class='bx bxs-chevrons-down bx-fade-down text-center my-1 opacity-40'></i></p>
+  <p class="fs-1 text-grey text-center">Programa Completo<br><i class='bx bxs-chevrons-down bx-fade-down text-center my-1 opacity-40'></i></p>
 
     <div class="container position-relative zindex-5">
       <div class="row g-md-5">
@@ -371,15 +370,15 @@
     </div>
   </div>
 </div>
-
 </section>
-      <!-- Testimonials (Carousel) -->
-      <section class="bg-secondary py-5 mb-2 mb-md-4 mb-lg-5">
+
+    <!-- Testimonials (Carousel) -->
+      <section class="bg-secondary pt-5 mb-2 mb-md-4 mb-lg-5">
         <div class="container pt-lg-4">
           <h2 class="h1 text-center pb-0 pb-md-2 pb-xl-4">Depoimentos</h2>
         </div>
-        <div class="pb-lg-3 px-2 px-sm-0 mb-4">    
-        <div class="me-4">
+        <div class="pb-lg-3 mx-3 px-sm-0">    
+        <div class="">
               <!-- Item -->
               <div class="swiper-slide h-auto pt-4">
                 <!-- Image comparison slider example -->
@@ -388,14 +387,18 @@
                       <figure slot="first" class="position-relative">
                         <picture>
                           <source srcset="assets/img/testimonials/giselle-antes.avif" type="image/avif">
-                          <source srcset="assets/img/testimonials/giselle-antes" type="image/webp">
+                          <source srcset="assets/img/testimonials/giselle-antes.webp" type="image/webp">
                           <img src="assets/img/testimonials/giselle-antes.jpg" alt="Antes Giselle" class="w-100 h-100" loading="lazy">
                         </picture>
-                          <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
+                          <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
                       </figure>
                       <figure slot="second" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/giselle-depois.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/giselle-depois.webp" type="image/webp">
                           <img src="assets/img/testimonials/giselle-depois.jpg" alt="Depois" class="w-100 h-100" loading="lazy">
-                          <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
+                        </picture>
+                          <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
                       <div slot="handle">
                         <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
@@ -421,11 +424,19 @@
                 <div class="d-flex align-items-stretch">
                   <img-comparison-slider class="h-100 w-100">
                       <figure slot="first" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/carlos-antes.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/carlos-antes.webp" type="image/webp">
                           <img src="assets/img/testimonials/carlos-antes.jpg" alt="Antes" class="w-100 h-100" loading="lazy">
+                        </picture>              
                           <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
                       </figure>
                       <figure slot="second" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/carlos-depois.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/carlos-depois.webp" type="image/webp">
                           <img src="assets/img/testimonials/carlos-depois.jpg" alt="Depois" class="w-100 h-100" loading="lazy">
+                        </picture>    
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
                       <div slot="handle">
@@ -451,11 +462,19 @@
                 <div class="d-flex align-items-stretch">
                   <img-comparison-slider class="h-100 w-100">
                       <figure slot="first" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/marcelo-antes.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/marcelo-antes.webp" type="image/webp">
                           <img src="assets/img/testimonials/marcelo-antes.jpg" alt="Antes" class="w-100 h-100" loading="lazy">
+                        </picture>    
                           <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
                       </figure>
                       <figure slot="second" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/marcelo-depois.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/marcelo-depois.webp" type="image/webp">
                           <img src="assets/img/testimonials/marcelo-depois.jpg" alt="Depois" class="w-100 h-100" loading="lazy">
+                        </picture> 
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
                       <div slot="handle">
@@ -481,11 +500,19 @@
                 <div class="d-flex align-items-stretch">
                   <img-comparison-slider class="h-100 w-100">
                       <figure slot="first" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/aline-antes.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/aline-antes.webp" type="image/webp">
                           <img src="assets/img/testimonials/aline-antes.jpg" alt="Antes" class="w-100 h-100" loading="lazy">
+                        </picture>  
                           <figcaption class="badge position-absolute top-0 start-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 ms-2 ms-sm-3 mt-2">Antes</figcaption>
                       </figure>
                       <figure slot="second" class="position-relative">
+                        <picture>
+                          <source srcset="assets/img/testimonials/aline-depois.avif" type="image/avif">
+                          <source srcset="assets/img/testimonials/aline-depois.webp" type="image/webp">
                           <img src="assets/img/testimonials/aline-depois.jpg" alt="Depois" class="w-100 h-100" loading="lazy">
+                        </picture>  
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
                       <div slot="handle">
@@ -507,6 +534,7 @@
 
             </div>
           </div>
+        </section>
 
       <!-- Comunidade -->
       <section class="container mb-5 pb-lg-5 pb-md-4 text-center">
@@ -525,7 +553,7 @@
           </div>
 
       <!-- Avatars -->
-      <div class="col-md-6 offset-xl-1">
+      <div class="col-md-6 offset-xl-1 mx-1">
         <div class="avatar-container position-relative" style="width: 100%; height: 330px; margin: 0;">
           <picture class="avatar avatar-1">
             <source srcset="assets/img/testimonials/avatar1.avif" type="image/avif">
@@ -558,7 +586,7 @@
       </div>
 
     <!--aviso-->
-      <p class="text-center fs-sm fst-italic mb-1" style="transform: translateY(+350%);">Resultados diferem individualmente.</p>
+      <p class="text-center fs-sm fst-italic mt-4" >Resultados diferem individualmente.</p>
     </div>
       </section>
     </section>
