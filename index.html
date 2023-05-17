@@ -372,6 +372,22 @@
 </div>
 </section>
 
+<!--ANIMAÇÃO CUSTOM MÃO-->
+<style>
+  @keyframes hand-move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+    100% { transform: translateX(0); }
+}
+
+.custom-slide-left {
+    animation: hand-move 1.5s infinite;
+    position: absolute;
+    right: +5px;
+    top: +70%; /* adjust this value to vertically align the hand icon */
+}
+</style>
+
     <!-- Testimonials (Carousel) -->
       <section class="bg-secondary pt-5 mb-2 mb-md-4 mb-lg-5">
         <div class="container pt-lg-4">
@@ -400,10 +416,12 @@
                         </picture>
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
-                      <div slot="handle">
-                        <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                        <i class='bx bxs-hand-up shadow-primary text-white ms-3 mt-2 bx-fade-left' style="font-size: 50px;"></i> 
-                      </div>  
+                      <div slot="handle" style="position: relative">
+                        <div style="position: relative;">
+                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
+                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
+                        </div>
+                      </div>
                   </img-comparison-slider>
                 </div>
                 <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
@@ -439,9 +457,12 @@
                         </picture>    
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
-                      <div slot="handle">
-                        <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                      </div>  
+                      <div slot="handle" style="position: relative">
+                        <div style="position: relative;">
+                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
+                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
+                        </div>
+                      </div> 
                   </img-comparison-slider>
                 </div>
                 <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
@@ -477,9 +498,12 @@
                         </picture> 
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
-                      <div slot="handle">
-                        <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                      </div>  
+                      <div slot="handle" style="position: relative">
+                        <div style="position: relative;">
+                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
+                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
+                        </div>
+                      </div> 
                   </img-comparison-slider>
                 </div>
                 <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
@@ -488,7 +512,7 @@
                   </span>      
                     <blockquote class="card-body pb-3 mb-0">
                       <h6 class="fs-3 fw-bold mb-0">Marcelo</h6>
-                      <p class="mb-0 fs-sm">Aprendi a comer com qualidade e com saúde.</p>
+                      <p class="mb-0 fs-sm">Aprendi a comer com qualidade e saúde.</p>
                     </blockquote>
                   </div>
                 </figure>
@@ -515,9 +539,12 @@
                         </picture>  
                           <figcaption class="badge position-absolute top-start end-0 bg-white rounded text-nav fs-sm fw-semibold lh-1 px-3 py-2 me-2 me-sm-3 mt-2">Depois</figcaption>
                       </figure>
-                      <div slot="handle">
-                        <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                      </div>  
+                      <div slot="handle" style="position: relative">
+                        <div style="position: relative;">
+                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
+                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
+                        </div>
+                      </div>
                   </img-comparison-slider>
                 </div>
                 <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
@@ -537,7 +564,7 @@
         </section>
 
       <!-- Comunidade -->
-      <section class="container mb-5 pb-lg-5 pb-md-4 text-center">
+      <section class="container mb-5 mt-2 pb-lg-5 pb-md-4 text-center">
         <div class="row align-items-center mb-xl-5 mb-4">
           <!-- Text -->
             <div class="d-flex justify-content-center justify-content-md-between pt-2 pt-lg-5">
