@@ -28,7 +28,7 @@
     <!-- Vendor Styles -->
 <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
 <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
-<link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
 
   <!-- Main Theme Styles + Bootstrap -->
 <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
@@ -94,13 +94,13 @@
             <picture>
               <source srcset="assets/img/logo-header.avif" type="image/avif">
               <source srcset="assets/img/logo-header.webp" type="image/webp">
-              <img src="assets/img/logo-header.gif" width="130" alt="Dieta Vitóriar" class="rounded-3 w-100 h-100">
+              <img src="assets/img/logo-header.gif" alt="Dieta Vitoria">
             </picture>
           </a>
           <div id="navbarNav" class="offcanvas offcanvas-end">
             <div class="offcanvas-header border-bottom">
               <h5 class="offcanvas-title">Menu</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <button role="button" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -132,29 +132,29 @@
                         <h6 class="px-3 mb-2">R$170 ao mês. Inclui:</h6>
                         <ul class="list-unstyled fs-sm pb-md-3 mb-3">
                           <li class="d-flex mb-2">
-                            <i class="bx bx-check fs-xl text-primary me-1"></i>
+                            <i class="bx bx-heart fs-xl text-primary me-1"></i>
                             <span style="display: block;">
                               Consulta Mensal<br>com<span class="fw-bold text-primary ms-1">Nutricionista</span>
                             </span>
                           </li>
                           <li class="d-flex mb-2">
-                            <i class="bx bx-check fs-xl text-primary me-1"></i>
+                            <i class="bx bx-line-chart fs-xl text-primary me-1"></i>
                             <span style="display: block;">
                             Exame Mensal de Bioimpedância <span class="text-grey fs-sm fst-italic">(% de gordura e músculo)</span>
                           </span>
                           </li>
                           <li class="d-flex mb-2">
-                            <i class="bx bx-check fs-xl text-primary me-1"></i>
+                            <i class="bx bx-bulb fs-xl text-primary me-1"></i>
                             <span style="display: block;">
                             Terapia em Grupo Semanal<br> com<span class="fw-bold text-primary ms-1">Psicóloga</span>
                           </span>
                           </li>
                           <li class="d-flex mb-2">
-                            <i class="bx bx-check fs-xl text-primary me-1"></i>
+                            <i class="bx bx-smile fs-xl text-primary me-1"></i>
                             Reuniões Semanais
                           </li>
                           <li class="d-flex mb-2">
-                            <i class="bx bx-check fs-xl text-primary me-1"></i>
+                            <i class="bx bx-phone-call fs-xl text-primary me-1"></i>
                             Suporte 7 dias por semana<br>no Whatsapp®
                           </li>
                         </ul>
@@ -171,37 +171,14 @@
             </div>      
           </div>
 
-          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button role="button" type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </header>
 
-      <style>
-        @keyframes slideInFromLeft {
-          0% {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
-          100% {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes slideInFromRight {
-          0% {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-          100% {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
+      <style>      
         .img-fluid {
-          animation: 1s ease-out 0s 1 slideInFromLeft;
           min-height: 320px; /* This sets a minimum height for the image */
           object-fit: cover; /* This will ensure the aspect ratio of the image is maintained */
           z-index: 1;
@@ -209,7 +186,6 @@
         }
         
         .card-container {
-          animation: 1s ease-out 0s 1 slideInFromRight;
           position: relative;
           z-index: 3;
           margin-left: -10%; /* Overlap the image*/
@@ -265,7 +241,7 @@
   </div>
 </section>
 
-<section class="container">
+<section class="container pb-4">
   <div class="row row-cols-1 row-cols-md-3 g-4 pb-lg-2">
   <p class="fs-1 text-grey text-center mb-1">Como Funciona</p><br>
   <i class='bx bxs-down-arrow-circle text-center text-primary fs-1 my-0 opacity-60'></i>
@@ -282,7 +258,7 @@
     <picture>
       <source srcset="assets/img/landing/medical/hero-video-thumbnail.avif" type="image/avif">
       <source srcset="assets/img/landing/medical/hero-video-thumbnail.webp" type="image/webp">
-      <img src="assets/img/landing/medical/hero-video-thumbnail.jpg" alt="Como Funciona" class="rounded-3 w-100 h-100" loading="lazy">
+      <img src="assets/img/landing/medical/hero-video-thumbnail.jpg" alt="Como Funciona" class="rounded-3 w-100 h-100">
     </picture>
     </div>
   </div>
@@ -389,7 +365,7 @@
 </style>
 
     <!-- Testimonials (Carousel) -->
-      <section class="bg-secondary pt-5 mb-2 mb-md-4 mb-lg-5">
+      <section class="bg-secondary pt-5 pb-5 mb-2 mb-md-4 mb-lg-5">
         <div class="container pt-lg-4">
           <h2 class="h1 text-center pb-0 pb-md-2 pb-xl-4">Depoimentos</h2>
         </div>
@@ -564,10 +540,10 @@
         </section>
 
       <!-- Comunidade -->
-      <section class="container mb-5 mt-2 pb-lg-5 pb-md-4 text-center">
+      <section class="container mb-5 mt-5 pb-lg-5 pb-md-4 text-center">
         <div class="row align-items-center mb-xl-5 mb-4">
           <!-- Text -->
-            <div class="d-flex justify-content-center justify-content-md-between pt-2 pt-lg-5">
+            <div class="d-flex justify-content-center justify-content-md-between pt-lg-5">
               <div class="mx-3 mx-md-0">
                 <div class="display-3 text-dark mb-1">9</div>
                 <span>anos de história</span>
@@ -619,7 +595,7 @@
     </section>
 
 <!-- Dieta Delicia-->
-<section>
+<section class="pb-3">
 <style>
   .main-image {
     position: relative;
@@ -722,54 +698,53 @@
   </div>
 </section>
 
-<!-- Pricing -->
-<div class="table-responsive-lg">
-  <div class="row flex-nowrap pb-4 mx-0">
-    <!-- Pricing plan -->
-    <div class="col px-0">
-      <div class="card h-100 border-0 shadow-sm p-xxl-3" style="min-width: 18rem;">
+<!-- Valores -->
+<div class="container table-responsive-lg my-3 pb-5 pt-2">
+  <div class="row flex-nowrap justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-primary text-center">
         <div class="card-body">
-          <div class="d-flex align-items-center pb-2 pb-md-3 mb-4">
-            <div class="ps-4">
-              <h1 class="pb-2 mb-1 mb-lg-3">Valores</h1>
-              <h4 class="h3 lh-1 mb-0">R$170 <span class="text-body fs-sm fw-normal">/ ao mês</span></h4>
+          <div class="d-flex align-items-center justify-content-center">
+            <div>
+              <p class="text-body fs-md fw-normal" style="display: inline-block; font-size: 1.2rem;"></p><span class="fs-4 text-primary">R$170</span> / mês</p>
+              <i class='bx bxs-down-arrow-circle bx-tada text-center text-primary fs-1 opacity-80'></i>
             </div>
           </div>
-          <ul class="list-unstyled fs-5 pb-md-3 mb-3">
-            <li class="d-flex mb-2 my-4">
-              <i class="bx bx-check fs-xl text-primary mt-3 me-3"></i>
+          <ul class="list-unstyled fs-6 pb-md-3 my-3">
+            <li class="d-flex flex-column align-items-center mb-2 my-4">
+              <i class="bx bx-heart fs-xl text-primary mt-1"></i>
               <span style="display: block;">
-                Consulta Mensal<br>com <span class="fw-bold text-primary mt-3 me-3">Nutricionista</span>
+                Consulta Mensal<br>com <span class="fw-bold text-primary">Nutricionista</span>
               </span>
             </li>
-            <li class="d-flex my-4 me-3">
-              <i class="bx bx-check fs-xl text-primary mt-3 me-3"></i>
+            <li class="d-flex flex-column align-items-center my-4">
+              <i class="bx bx-line-chart fs-xl text-primary mt-3"></i>
               <span style="display: block;">
-              Exame Mensal de Bioimpedância <span class="text-grey fs-sm fst-italic me-3">(% de gordura e músculo)</span>
+              Exame Mensal de Bioimpedância<br><span class="text-grey fs-sm fst-italic">(% de gordura e músculo)</span>
             </span>
             </li>
-            <li class="d-flex my-4 me-3">
-              <i class="bx bx-check fs-xl text-primary mt-3 me-3"></i>
+            <li class="d-flex flex-column align-items-center my-4">
+              <i class="bx bx-bulb fs-xl text-primary mt-3"></i>
               <span style="display: block;">
-              <p>Terapia em Grupo Semanal<br> com <span class="fw-bold text-primary">Psicóloga</span></p>
+              <p>Terapia em Grupo<br> Semanal com <span class="fw-bold text-primary">Psicóloga</span></p>
             </span>
             </li>
-            <li class="d-flex mb-2 mt-3 me-3">
-              <i class="bx bx-check fs-xl text-primary mt-3 me-3"></i>
+            <li class="d-flex flex-column align-items-center my-4">
+              <i class="bx bx-smile fs-xl text-primary mt-3"></i>
               <span style="display: block;">
-              <p>Reuniões Semanais</p>
+              <p>Encontros semanais <br>com outros alunos</p>
             </span>
             </li>
-            <li class="d-flex mb-2 mt-3 me-3">
-              <i class="bx bx-check fs-xl text-primary mt-3 me-3"></i>
+            <li class="d-flex flex-column align-items-center my-4">
+              <i class="bx bxs-phone-call fs-xl text-primary mt-3"></i>
               <span style="display: block;">
-              <p>Suporte 7 dias por semana<br>no <span class="fw-bold text-primary">Whatsapp®</span></p>
+              <p>Suporte 7 dias / semana<br>pelo <span class="fw-bold text-primary">Whatsapp®</span></p>
             </span>
             </li>
           </ul>
         </div>
-        <div class="card-footer border-0 pt-0 pb-4">
-          <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php" class="btn btn-outline-primary w-100">Tire suas dúvidas<i class='bx bxl-whatsapp ms-1 fs-3'></i></a>
+        <div class="card-footer pb-4" style="border-top: none;">
+          <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php" class="btn btn-outline-primary w-100">Fale com a Nutri<i class='bx bxl-whatsapp ms-1 fs-3'></i></a>
         </div>
       </div>
     </div>
@@ -777,9 +752,8 @@
 </div>
 
     <!-- FAQ (Accordion) -->
-      <section class="container pt-1 pt-lg-3">
+      <section class="container pt-3 pt-lg-3">
         <div class="position-relative bg-primary rounded-3 overflow-hidden px-3 px-sm-4 px-md-0 py-5 bg-opacity-75">
-
           <div class="row justify-content-center position-relative zindex-2 py-lg-4">
             <div class="col-xl-8 col-lg-9 col-md-10 py-2">
               <h2 class="h1 text-light text-center mt-n2 mt-lg-0 mb-4 mb-lg-5">Perguntas Frequentes</h2>
@@ -787,7 +761,7 @@
                 <!-- Item -->
                 <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                   <h3 class="accordion-header">
-                    <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#q-1" aria-expanded="true" aria-controls="q-1">
+                    <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#q-1" aria-expanded="true" aria-controls="q-1" role="button">
                       Quais os valores?
                     </button>
                   </h3>
@@ -801,7 +775,7 @@
                 <!-- Item -->
                 <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                   <h3 class="accordion-header">
-                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-2" aria-expanded="false" aria-controls="q-2">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-2" aria-expanded="false" aria-controls="q-2" role="button">
                       O que está incluso?
                     </button>
                   </h3>
@@ -824,7 +798,7 @@
                 <!-- Item -->
                 <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                   <h3 class="accordion-header">
-                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-3" aria-expanded="false" aria-controls="q-3">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-3" aria-expanded="false" aria-controls="q-3" role="button">
                       O que é a Avaliação Gratuita?
                     </button>
                   </h3>
@@ -842,11 +816,19 @@
     </main>
 
 <!--Ultimos a serem carregados-->    
+<link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
 <style>
-.whatsapp-btn-visible {
+  .whatsapp-btn-hidden {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out; /* smooth transition */
+  }
+  
+  .whatsapp-btn-visible {
       opacity: 1;
-}
-</style>
+      transition: opacity 0.5s ease-in-out; /* smooth transition */
+  }
+  </style>
+  
  
 <!-- Footer -->
     <footer class="footer bg-secondary pt-5 pb-4 pb-lg-5">
@@ -899,7 +881,7 @@
     <!-- Floating Whatsapp button -->
     <div id="whatsappBtn" class="position-fixed bottom-0 end-0 m-3 whatsapp-btn whatsapp-btn-hidden" style="z-index: 9999">
       <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php">
-        <button class="btn btn-success btn-icon rounded-circle" type="button">
+        <button class="btn btn-success btn-icon rounded-circle" type="button" role="button">
           <i class="bx bxl-whatsapp" style="font-size: 1.5rem;"></i>
         </button>
       </a>
@@ -916,14 +898,17 @@
       
         window.addEventListener("scroll", (e) => {
           if (e.currentTarget.pageYOffset > scrollOffset) {
+            whatsappBtn.classList.remove("whatsapp-btn-hidden"); // remove hidden class
             whatsappBtn.classList.add("whatsapp-btn-visible");
           } else {
             whatsappBtn.classList.remove("whatsapp-btn-visible");
+            whatsappBtn.classList.add("whatsapp-btn-hidden"); // add hidden class
           }
         });
       })();
       
     </script>
+    
     <!-- 
     <script id="sw-script" 
     async src="https://js.storywidget.com/story.js" data-swid="fd2ac00f-4337-4a90-92f1-5d04e310964b">
