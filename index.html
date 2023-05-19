@@ -323,14 +323,14 @@
 <style>
   @keyframes hand-move {
     0% { transform: translateX(0); }
-    50% { transform: translateX(30px); }
+    50% { transform: translateX(35px); }
     100% { transform: translateX(0); }
 }
 
 .custom-slide-left {
-    animation: hand-move 1.5s infinite;
+    animation: hand-move 1.8s infinite;
     position: absolute;
-    right: +5px;
+    right: +8px;
     top: +70%; /* adjust this value to vertically align the hand icon */
 }
 
@@ -378,7 +378,7 @@
         <div class="pb-lg-3 mx-3 px-sm-0">    
         <div class="">
               <!-- Item -->
-              <div class="swiper-slide h-auto pt-4">
+              <div class="swiper-slide h-auto">
                 <!-- Image comparison slider example -->
                 <div class="d-flex align-items-stretch">
                   <img-comparison-slider class="h-100 w-100">
@@ -400,15 +400,21 @@
                       </figure>
                       <div slot="handle" style="position: relative">
                         <div style="position: relative;">
-                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
+                            <div style="background-color: #ec2d53; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                    <path d="M17 11H7V7l-5 5 5 5v-4h10v4l5-5-5-5z"></path>
+                                </svg>
+                            </div>                        
+                            <!-- <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> --> 
+                            <svg class="custom-slide-left" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="fill: white; filter: drop-shadow(1px 0 0 #3d3d3d) drop-shadow(0 -1px 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000);"><path d="M19.221 10.803 12 10V4a2 2 0 0 0-4 0v12l-3.031-1.212a2 2 0 0 0-2.64 1.225l-.113.34a.998.998 0 0 0 .309 1.084l5.197 4.332c.179.149.406.231.64.231H19a2 2 0 0 0 2-2v-7.21a2 2 0 0 0-1.779-1.987z"></path></svg>
                         </div>
-                      </div>
+                      </div>                    
                   </img-comparison-slider>
                 </div>
-                <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
+                <div class="card h-100 position-relative border-0 shadow-sm mt-n3">
                   <span class="btn btn-icon bg-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                    <i class="bx bxs-quote-left" style="color:white"></i>
+                    <!--<i class="bx bxs-quote-left" style="color:white"></i>-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: white"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"></path></svg>
                   </span>                                
                     <blockquote class="card-body pb-3 mb-4">
                       <h6 class="fs-2 fw-semibold mb-0">Giselle</h6>
@@ -440,15 +446,21 @@
                       </figure>
                       <div slot="handle" style="position: relative">
                         <div style="position: relative;">
-                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
-                        </div>
+                          <div style="background-color: #ec2d53; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px;">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                  <path d="M17 11H7V7l-5 5 5 5v-4h10v4l5-5-5-5z"></path>
+                              </svg>
+                          </div>                        
+                          <!-- <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> --> 
+                          <svg class="custom-slide-left" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="fill: white; filter: drop-shadow(1px 0 0 #3d3d3d) drop-shadow(0 -1px 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000);"><path d="M19.221 10.803 12 10V4a2 2 0 0 0-4 0v12l-3.031-1.212a2 2 0 0 0-2.64 1.225l-.113.34a.998.998 0 0 0 .309 1.084l5.197 4.332c.179.149.406.231.64.231H19a2 2 0 0 0 2-2v-7.21a2 2 0 0 0-1.779-1.987z"></path></svg>
+                      </div>
                       </div> 
                   </img-comparison-slider>
                 </div>
-                <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
+                <div class="card h-100 position-relative border-0 shadow-sm mt-n3">
                   <span class="btn btn-icon bg-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                    <i class="bx bxs-quote-left" style="color:white"></i>
+                    <!--<i class="bx bxs-quote-left" style="color:white"></i>-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: white"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"></path></svg>
                   </span>      
                     <blockquote class="card-body pb-3 mb-0">
                       <h6 class="fs-3 fw-bold mb-0">Carlos</h6>
@@ -481,15 +493,21 @@
                       </figure>
                       <div slot="handle" style="position: relative">
                         <div style="position: relative;">
-                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
-                        </div>
+                          <div style="background-color: #ec2d53; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px;">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                  <path d="M17 11H7V7l-5 5 5 5v-4h10v4l5-5-5-5z"></path>
+                              </svg>
+                          </div>                        
+                          <!-- <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> --> 
+                          <svg class="custom-slide-left" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="fill: white; filter: drop-shadow(1px 0 0 #3d3d3d) drop-shadow(0 -1px 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000);"><path d="M19.221 10.803 12 10V4a2 2 0 0 0-4 0v12l-3.031-1.212a2 2 0 0 0-2.64 1.225l-.113.34a.998.998 0 0 0 .309 1.084l5.197 4.332c.179.149.406.231.64.231H19a2 2 0 0 0 2-2v-7.21a2 2 0 0 0-1.779-1.987z"></path></svg>
+                      </div>
                       </div> 
                   </img-comparison-slider>
                 </div>
-                <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
+                <div class="card h-100 position-relative border-0 shadow-sm mt-n3">
                   <span class="btn btn-icon bg-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                    <i class="bx bxs-quote-left" style="color:white"></i>
+                    <!--<i class="bx bxs-quote-left" style="color:white"></i>-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: white"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"></path></svg>
                   </span>      
                     <blockquote class="card-body pb-3 mb-0">
                       <h6 class="fs-3 fw-bold mb-0">Marcelo</h6>
@@ -522,15 +540,21 @@
                       </figure>
                       <div slot="handle" style="position: relative">
                         <div style="position: relative;">
-                            <i class="bx bx-move-horizontal rounded-circle bg-primary fs-3 p-2" style="color:white"></i>
-                            <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px;  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> 
-                        </div>
+                          <div style="background-color: #ec2d53; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px;">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                  <path d="M17 11H7V7l-5 5 5 5v-4h10v4l5-5-5-5z"></path>
+                              </svg>
+                          </div>                        
+                          <!-- <i class='bx bxs-hand-up text-white custom-slide-left' style="font-size: 60px; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000"></i> --> 
+                          <svg class="custom-slide-left" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="fill: white; filter: drop-shadow(1px 0 0 #3d3d3d) drop-shadow(0 -1px 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000);"><path d="M19.221 10.803 12 10V4a2 2 0 0 0-4 0v12l-3.031-1.212a2 2 0 0 0-2.64 1.225l-.113.34a.998.998 0 0 0 .309 1.084l5.197 4.332c.179.149.406.231.64.231H19a2 2 0 0 0 2-2v-7.21a2 2 0 0 0-1.779-1.987z"></path></svg>
+                      </div>
                       </div>
                   </img-comparison-slider>
                 </div>
-                <div class="card h-100 position-relative border-0 shadow-sm pt-1 ">
+                <div class="card h-100 position-relative border-0 shadow-sm mt-n3"> 
                   <span class="btn btn-icon bg-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
-                    <i class="bx bxs-quote-left" style="color:white"></i>
+                    <!--<i class="bx bxs-quote-left" style="color:white"></i>-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: white"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"></path></svg>
                   </span>      
                     <blockquote class="card-body pb-3 mb-0">
                       <h6 class="fs-2 fw-semibold mb-0">Aline</h6>
@@ -832,7 +856,7 @@
 <!--Ultimos a serem carregados-->
 <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
 <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
-<link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+<!--<link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>-->
 <style>
   .whatsapp-btn-hidden {
       opacity: 0;
