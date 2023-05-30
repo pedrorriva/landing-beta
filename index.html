@@ -274,7 +274,7 @@
               <img src="assets/img/logo-header.png" alt="Dieta Vitoria">
             </picture>
           </a>
-          <div id="navbarNav" class="offcanvas offcanvas-end">
+          <div id="navbarNav" class="offcanvas offcanvas-end" style="display: none">
             <div class="offcanvas-header border-bottom">
               <h5 class="offcanvas-title">Menu</h5>
               <button role="button" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -395,8 +395,8 @@
     </div>
   </div>
 </section>
-  <!-- Main Theme Styles + Bootstrap -->
-  <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+
 <section class="container pb-4">
   <div class="row row-cols-1 row-cols-md-3 g-4 pb-lg-2">
   <p class="fs-1 text-center mb-1" style="color:#3d3d3d">Como Funciona</p><br>
@@ -1147,5 +1147,21 @@
     async src="https://js.storywidget.com/story.js" data-swid="fd2ac00f-4337-4a90-92f1-5d04e310964b">
     </script>
     -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'assets/css/theme.min.css';
+      
+        // Show the menu when the CSS file loads
+        link.onload = function() {
+          document.getElementById('navbarNav').style.display = '';
+        };
+      
+        // Append the link to the head
+        document.head.appendChild(link);
+      });
+      </script>
+      
   </body>
 </html>
