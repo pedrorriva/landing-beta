@@ -36,29 +36,23 @@
         const img = pictureElement.getElementsByTagName('img')[0];
 
         for(let source of sources) {
-          const url = new URL(source.srcset);
-          const pathParts = url.pathname.split('/');
-          const filename = pathParts[pathParts.length - 1];
-          const filenameParts = filename.split('.');
-          filenameParts[0] += '-online';
-          pathParts[pathParts.length - 1] = filenameParts.join('.');
-          url.pathname = pathParts.join('/');
-          source.srcset = url.toString();
+          if (source.srcset) { 
+            const filenameParts = source.srcset.split('.');
+            filenameParts[0] += '-online';
+            source.srcset = filenameParts.join('.');
+          }
         }
 
-        const url = new URL(img.src);
-        const pathParts = url.pathname.split('/');
-        const filename = pathParts[pathParts.length - 1];
-        const filenameParts = filename.split('.');
-        filenameParts[0] += '-online';
-        pathParts[pathParts.length - 1] = filenameParts.join('.');
-        url.pathname = pathParts.join('/');
-        img.src = url.toString();
+        if (img.src) {
+          const filenameParts = img.src.split('.');
+          filenameParts[0] += '-online';
+          img.src = filenameParts.join('.');
+        }
       }
     }
   });
-
 </script>
+
 
 <style>
 
@@ -176,10 +170,6 @@
   
   .justify-content-center-hero {
     justify-content: center;
-  }
-  
-  .d-flex-hero {
-    display: flex;
   }
   
   .flex-column-hero {
@@ -347,13 +337,12 @@
         </div>
       </header>
 
-
 <!-- Hero CTA -->
 <section class="container-hero">
     <div class="col-md-6-hero offset-md-1-hero">  
       <div class="d-flex-hero flex-row-hero align-items-center-hero justify-content-center-hero">
         <div class="overflow-hidden-hero rounded-hero" style="position: relative; z-index: 1;">
-          <picture>
+          <picture class="changeable-image">
             <source srcset="assets/img/landing/medical/Nutri.avif" type="image/avif">
             <source srcset="assets/img/landing/medical/Nutri.webp" type="image/webp">
             <img src="assets/img/landing/medical/Nutri.jpg" class="img-hero" alt="Nutricionista">
@@ -379,9 +368,6 @@
     </div>
 </section>
 
-
-  
-
 <!-- Main Theme Styles + Bootstrap -->
 <link rel="stylesheet" media="screen" id="theme-style" href="assets/css/theme.min.css">
 
@@ -391,17 +377,17 @@
       var mockNavbar = document.getElementById('loadingNavbar');
       var realNavbar = document.getElementById('realNavbar');
   
-      console.log('Before Swap:');
-      console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
-      console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
+      //console.log('Before Swap:');
+      //console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
+      //console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
   
       // Hide the mock navbar and display the real one
       mockNavbar.style.display = 'none';
       realNavbar.style.display = 'block';
   
-      console.log('After Swap:');
-      console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
-      console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
+      //console.log('After Swap:');
+      //console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
+      //console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
   }
   </script> 
 
