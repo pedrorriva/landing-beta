@@ -386,28 +386,24 @@
 <link rel="stylesheet" media="screen" id="theme-style" href="assets/css/theme.min.css">
 
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    // Get the mock and real navbars
-    var mockNavbar = document.getElementById('loadingNavbar');
-    var realNavbar = document.getElementById('realNavbar');
-
-    console.log('Before Swap:');
-    console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
-    console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
-
-    // Hide the mock navbar and display the real one
-    mockNavbar.style.display = 'none';
-    realNavbar.style.display = 'block';
-
-    console.log('After Swap:');
-    console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
-    console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
-});
-</script>
-
+  window.onload = function() {
+      // Get the mock and real navbars
+      var mockNavbar = document.getElementById('loadingNavbar');
+      var realNavbar = document.getElementById('realNavbar');
   
-
-
+      console.log('Before Swap:');
+      console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
+      console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
+  
+      // Hide the mock navbar and display the real one
+      mockNavbar.style.display = 'none';
+      realNavbar.style.display = 'block';
+  
+      console.log('After Swap:');
+      console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
+      console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
+  }
+  </script> 
 
 <section class="container pb-4">
   <div class="row row-cols-1 row-cols-md-3 g-4 pb-lg-2">
