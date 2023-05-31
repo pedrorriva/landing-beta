@@ -22,73 +22,103 @@
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
+<!--Fazendo ser online -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isOnline = urlParams.get('online');
+
+    if (isOnline) {
+      const pictureElements = document.getElementsByClassName('changeable-image');
+
+      for(let pictureElement of pictureElements) {
+        const sources = pictureElement.getElementsByTagName('source');
+        const img = pictureElement.getElementsByTagName('img')[0];
+
+        for(let source of sources) {
+          const url = new URL(source.srcset);
+          const pathParts = url.pathname.split('/');
+          const filename = pathParts[pathParts.length - 1];
+          const filenameParts = filename.split('.');
+          filenameParts[0] += '-online';
+          pathParts[pathParts.length - 1] = filenameParts.join('.');
+          url.pathname = pathParts.join('/');
+          source.srcset = url.toString();
+        }
+
+        const url = new URL(img.src);
+        const pathParts = url.pathname.split('/');
+        const filename = pathParts[pathParts.length - 1];
+        const filenameParts = filename.split('.');
+        filenameParts[0] += '-online';
+        pathParts[pathParts.length - 1] = filenameParts.join('.');
+        url.pathname = pathParts.join('/');
+        img.src = url.toString();
+      }
+    }
+  });
+
+</script>
+
 <style>
 
   .container-hero {
-    
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top:40px;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     margin-bottom: 1.5rem;
   }
   
-  @media (min-width: 576px) {
-    .container-hero {
-      max-width: 540px;
+  .btn-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.785rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background-color: rgba(236, 45, 83, 0.7333333333);
+    border-color: rgba(236, 45, 83, 0.7333333333);
+    box-shadow: unset;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out, box-shadow .2s ease-in-out;
+    box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(236,45,83,.9) !important;
+    margin-bottom: -1.5rem;
     }
+
+  .btn-hero:hover {
+    color: #ffffff;
+    background-color: rgba(240, 94, 123, 0.7733333333);
+    border-color: rgba(239, 79, 111, 0.76);
   }
-  
-  @media (min-width: 768px) {
-    .container-hero {
-      max-width: 720px;
-    }
+
+  .btn-hero:focus {
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(181, 34, 64, 0.5);
   }
-  
-  @media (min-width: 992px) {
-    .container-hero {
-      max-width: 960px;
-    }
+
+  .btn-hero:active {
+      color: #000;
+      background-color: rgba(242, 108, 135, 0.7866666667);
+      border-color: rgba(239, 79, 111, 0.76);
+      box-shadow: none;
   }
-  
-  @media (min-width: 1200px) {
-    .container-hero {
-      max-width: 1140px;
-    }
+
+  .btn-hero:disabled,
+  .btn-hero.disabled {
+      color: #000;
+      background-color: rgba(236, 45, 83, 0.7333333333);
+      border-color: rgba(236, 45, 83, 0.7333333333);
   }
-  
-  .pb-5-hero {
-    padding-bottom: 3rem;
-  }
-  
-  .mb-md-4-hero {
-    margin-bottom: 1.5rem;
-  }
-  
-  .mb-lg-5-hero {
-    margin-bottom: 3rem;
-  }
-  
-  .row-hero {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-  
-  .pb-xl-3-hero {
-    padding-bottom: 1rem;
-  }
-  
-  @media (min-width: 1200px) {
-    .pb-xl-3-hero {
-      padding-bottom: 1rem;
-    }
-  }
-  
+
   .justify-content-center-hero {
     justify-content: center;
   }
@@ -114,10 +144,7 @@
       margin-left: 8.333333%;
     }
   }
-  
-  .mt-5-hero {
-    margin-top: 3rem;
-  }
+
   
   .d-flex-hero {
     display: flex;
@@ -216,57 +243,36 @@
             margin-left: -15%; /* Overlap the image*/
   }
   
+  .navbar-mock{
+    top: 0;
+    left: 0;
+    margin-left:15px;
+    z-index: 1030;
+    position: relative;
+    display: flex;
+    padding: 0.5rem 0;
+    background-color: #fff;
+    color: #33354d;
+    align-items: center;
+  }
   </style>
 
-
-
-<!--Fazendo ser online -->
-<script defer>
-  document.addEventListener("DOMContentLoaded", function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const isOnline = urlParams.get('online');
-
-    if (isOnline) {
-      const pictureElements = document.getElementsByClassName('changeable-image');
-
-      for(let pictureElement of pictureElements) {
-        const sources = pictureElement.getElementsByTagName('source');
-        const img = pictureElement.getElementsByTagName('img')[0];
-
-        for(let source of sources) {
-          const url = new URL(source.srcset);
-          const pathParts = url.pathname.split('/');
-          const filename = pathParts[pathParts.length - 1];
-          const filenameParts = filename.split('.');
-          filenameParts[0] += '-online';
-          pathParts[pathParts.length - 1] = filenameParts.join('.');
-          url.pathname = pathParts.join('/');
-          source.srcset = url.toString();
-        }
-
-        const url = new URL(img.src);
-        const pathParts = url.pathname.split('/');
-        const filename = pathParts[pathParts.length - 1];
-        const filenameParts = filename.split('.');
-        filenameParts[0] += '-online';
-        pathParts[pathParts.length - 1] = filenameParts.join('.');
-        url.pathname = pathParts.join('/');
-        img.src = url.toString();
-      }
-    }
-  });
-
-</script>
-
 </head>
-  <!-- Body -->
-  <body>
-    <!-- Page wrapper for sticky footer -->
-    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+<body>
+
     <main class="page-wrapper data-scroll">
+
+      <!-- mock navbar -->
+      <div id="loadingNavbar" class="navbar-mock">
+        <picture style="width:177px;height: 86px;">
+          <source srcset="assets/img/logo-header.webp" type="image/webp">
+          <img src="assets/img/logo-header.png" alt="Dieta Vitoria">
+        </picture>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 0.759); margin-left: auto; margin-right: 20px;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+      </div>
+
       <!-- Navbar -->
-      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
-      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+      <header id="realNavbar" class="header navbar navbar-expand-lg navbar-sticky" style="display:none;">
         <div class="container px-3">
           <a href="index.html" class="navbar-brand">
             <picture style="width:177px;height: 86px;">
@@ -274,33 +280,13 @@
               <img src="assets/img/logo-header.png" alt="Dieta Vitoria">
             </picture>
           </a>
-          <div id="navbarNav" class="offcanvas offcanvas-end" style="display: none">
+          <div id="navbarNav" class="offcanvas offcanvas-end">
             <div class="offcanvas-header border-bottom">
               <h5 class="offcanvas-title">Menu</h5>
               <button role="button" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                  <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-current="page">Dúvidas ▾</a>
-                  <div class="dropdown-menu p-0">
-                    <div class="d-lg-flex">
-                      <div class="mega-dropdown-column mx-2 mb-2 pt-lg-3 pb-lg-4">
-                        O que está incluso?
-                      </div>
-                      <div class="mega-dropdown-column pt-lg-3 pb-lg-4" style="--si-mega-dropdown-column-width: 16rem;">
-                        <ul>
-                          <li>Consulta mensal com Nutricionista.</li>
-                          <li>Exame de Bioimpedância.</li>
-                          <li>Cardápios estratégicos.</li>
-                          <li>Terapia em Grupo semanal.</li>
-                          <li>Reunião de grupo semanal.</li>
-                          <li>Suporte Diário.</li>
-                          <li>Desafios e muito mais!</li>
-                        </ul>
-                      </div>
-                        <p class="mt-2 mx-2">Todas as opções podem ser Online como Presenciais.</p>
-                  </div>
                 <li class="nav-item dropdown" >
                   <a href="#" class="nav-link" data-bs-toggle="dropdown">Valores ▾</a>
                   <div class="dropdown-menu" style="border-left: none;">
@@ -362,11 +348,9 @@
       </header>
 
 
-
 <!-- Hero CTA -->
 <section class="container-hero">
-  <div class="row-hero">
-    <div class="col-md-6-hero offset-md-1-hero mt-5-hero">  
+    <div class="col-md-6-hero offset-md-1-hero">  
       <div class="d-flex-hero flex-row-hero align-items-center-hero justify-content-center-hero">
         <div class="overflow-hidden-hero rounded-hero" style="position: relative; z-index: 1;">
           <picture>
@@ -388,13 +372,41 @@
       </div>
       <div class="text-center-hero mt-2-hero">
         <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php"
-         class="btn btn-primary shadow-primary btn-lg mb-n4-hero">Fale com a Nutri
+         class="btn-hero">Fale com a Nutri
          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);margin-left: 5px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263"></path></svg><!--<i class="bx bxl-whatsapp ms-1 fs-3"></i>-->
         </a>
       </div>
     </div>
-  </div>
 </section>
+
+
+  
+
+<!-- Main Theme Styles + Bootstrap -->
+<link rel="stylesheet" media="screen" id="theme-style" href="assets/css/theme.min.css">
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // Get the mock and real navbars
+    var mockNavbar = document.getElementById('loadingNavbar');
+    var realNavbar = document.getElementById('realNavbar');
+
+    console.log('Before Swap:');
+    console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
+    console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
+
+    // Hide the mock navbar and display the real one
+    mockNavbar.style.display = 'none';
+    realNavbar.style.display = 'block';
+
+    console.log('After Swap:');
+    console.log('Mock Navbar Display:', getComputedStyle(mockNavbar).display);
+    console.log('Real Navbar Display:', getComputedStyle(realNavbar).display);
+});
+</script>
+
+  
+
 
 
 <section class="container pb-4">
@@ -1147,21 +1159,7 @@
     async src="https://js.storywidget.com/story.js" data-swid="fd2ac00f-4337-4a90-92f1-5d04e310964b">
     </script>
     -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'assets/css/theme.min.css';
-      
-        // Show the menu when the CSS file loads
-        link.onload = function() {
-          document.getElementById('navbarNav').style.display = '';
-        };
-      
-        // Append the link to the head
-        document.head.appendChild(link);
-      });
-      </script>
+
       
   </body>
 </html>
