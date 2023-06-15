@@ -140,7 +140,7 @@
 
             <div class="mb-3">
                 <label for="celular" class="form-label">Celular</label>
-                <input type="number" inputmode="numeric" class="form-control" id="celular">
+                <input type="text" inputmode="numeric" class="form-control" id="celular">
             </div>
             
             <div class="container">
@@ -216,12 +216,17 @@ function checkFields() {
     var slide_1 = document.getElementById('slide_1');
     var slide_2 = document.getElementById('slide_2');
     var botao_zap = document.getElementById('whatsapp_button');
+    var emailInput = document.getElementById('email');
+
     slide_1.classList.add('slide-out');
     slide_1.classList.remove('active');
     slide_2.classList.remove('slide-in');
     slide_2.classList.add('active');
     botao_zap.classList.add('d-none');
+
+    emailInput.focus();
 });
+
 
 
 function avaliacao(){
@@ -312,10 +317,10 @@ function formatDate(input) {
 var validationFail = false;
 
 // Peso (weight) mask and validation
-$("#peso").mask("000.0").on("blur", function() {
+$("#peso").on("blur", function() {
     var peso = $(this).val();
-    if (!validationFail && peso && (peso < 40 || peso > 200)) {
-        alert("Por favor, insira um peso válido. (40 - 200)");
+    if (!validationFail && peso && (peso < 40 || peso > 300)) {
+        alert("Por favor, insira um peso válido. (40kg a 300kg)");
         $(this).val("");
         validationFail = true;
     } else {
