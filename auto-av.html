@@ -32,6 +32,13 @@
 
 
 <style>
+    
+.custom-append {
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
     .card-feature {
         box-shadow: 0 2px 6px 0 #ec2d5364;
@@ -87,29 +94,40 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="svg-oferecemos" viewBox="0 0 24 24" ><path d="M5 3H3v18h18v-2H5z"></path><path d="M13 12.586 8.707 8.293 7.293 9.707 13 15.414l3-3 4.293 4.293 1.414-1.414L16 9.586z"></path></svg>
             <p class="fs-4 m-0 py-2 text-center text-dark"><strong>Avaliação</strong></p>
             <p class="fs-6 mb-2 mx-2 text-center text-dark">Metas <strong>realistas</strong> são essenciais para alinhar expectativas</p> 
-                <div class="row justify-content-center">
+
+                <div class="row justify-content-center mx-2">
+
                     <div class="col">
-                        <div class="mb-2 text-center ms-3">
+                        <div class="mb-2 text-center">
                             <label for="peso" class="form-label">Peso</label>
-                            <input type="number" inputmode="numeric" class="form-control" id="peso" name="peso" step="1" pattern="\d+" required min="40" max="200">
+                            <div class="input-group has-validation">
+                                <input type="number" inputmode="numeric" class="form-control" id="peso" name="peso" step="1" pattern="\d+" required min="40" max="200">
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
-                        
                     </div>
+                    
                     <div class="col">
-                        <div class="mb-2 text-center me-3">
+                        <div class="mb-2 text-center">
                             <label for="altura" class="form-label">Altura</label>
-                            <input type="number" inputmode="numeric" class="form-control" name="altura" id="altura" step="0.01">
+                            <div class="input-group has-validation">
+                                <input type="number" inputmode="numeric" class="form-control" id="altura" name="altura" step="0.01" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
-                    </div>
+                    </div>                                 
+                    
                 </div>
                 
                 <div class="mb-3">
                     <div class="text-center">
                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                        <input type="text" inputmode="numeric" class="form-control" name="data_nascimento" id="data_nascimento">
+                        <input type="text" inputmode="numeric" class="form-control" name="data_nascimento" id="data_nascimento" required>
+                        <div class="invalid-feedback"></div>
                     </div>
-
                 </div>
+
+
                 <div class="mb-3">
                     <label for="sexo" class="form-label">Sexo</label>
                         <select class="form-select" id="sexo">
@@ -121,9 +139,7 @@
         </div>
 
         <div class="d-flex justify-content-center align-items-center">
-            <button class="btn btn-primary disabled" id="calcular_button" target="_blank" rel="noopener">
-              &nbsp;Calcular ➔
-            </button>
+            <button class="btn btn-primary disabled" id="calcular_button" target="_blank" rel="noopener">Calcular ➔</button>
         </div> 
 </section>
 
@@ -188,46 +204,111 @@ var SmoothScroll = function() {};
 
 document.addEventListener("DOMContentLoaded", function(){
 
-function checkFields() {
-    var peso = document.getElementById('peso').value;
-    var altura = document.getElementById('altura').value;
-    var data_nascimento = document.getElementById('data_nascimento').value;
-    var sexo = document.getElementById('sexo').value;
-    
-    var calcular_button = document.getElementById('calcular_button');
+// Get the calculate button
+var calcularButton = document.getElementById('calcular_button');
 
-    if (peso !== "" && altura !== "" && data_nascimento !== "" && sexo !== "") {
-      calcular_button.classList.remove("disabled");
-    } else {
-      if (!calcular_button.classList.contains("disabled")) {
-        calcular_button.classList.add("disabled");
-      }
+// Function to validate an input field
+function validateInput(input) {
+  var inputValue = input.value.trim();
+  if (inputValue === "") {
+    input.classList.remove("is-invalid");
+    return false;
+  }
+  var isValid = validateFieldValue(input);
+  input.classList.toggle("is-invalid", !isValid);
+  return isValid;
+}
+
+// Function to validate the value of a field
+function validateFieldValue(element) {
+  if (element.id === 'sexo') {
+    return element.value !== "";
+  } else if (element.id === 'peso' || element.id === 'altura') {
+    var value = parseFloat(element.value);
+    if (element.id === 'peso') {
+      return !isNaN(value) && value >= 40 && value <= 200;
+    } else if (element.id === 'altura') {
+      return !isNaN(value) && value >= 1.20 && value <= 2.30;
     }
   }
+  return true;
+}
 
-  document.getElementById('peso').onblur = checkFields;
-  document.getElementById('altura').onblur = checkFields;
-  document.getElementById('data_nascimento').onblur = checkFields;
-  document.getElementById('sexo').onblur = checkFields;
-  document.getElementById('sexo').onchange = checkFields;
+// Function to check all fields
+function checkFields() {
+  var allInputsValid = ['peso', 'altura', 'data_nascimento', 'sexo'].every(id => validateInput(document.getElementById(id)));
+  calcularButton.classList.toggle('disabled', !allInputsValid);
+}
 
-
-  document.getElementById('calcular_button').addEventListener('click', function() {
-    var slide_1 = document.getElementById('slide_1');
-    var slide_2 = document.getElementById('slide_2');
-    var botao_zap = document.getElementById('whatsapp_button');
-    var emailInput = document.getElementById('email');
-
-    slide_1.classList.add('slide-out');
-    slide_1.classList.remove('active');
-    slide_2.classList.remove('slide-in');
-    slide_2.classList.add('active');
-    botao_zap.classList.add('d-none');
-
-    emailInput.focus();
+// Add event listeners for each input field
+document.getElementById('peso').addEventListener('blur', function() {
+  validateInput(this);
+  checkFields();
 });
 
+document.getElementById('altura').addEventListener('blur', function() {
+  validateInput(this);
+  checkFields();
+});
 
+document.getElementById('data_nascimento').addEventListener('blur', function() {
+  validateInput(this);
+  checkFields();
+});
+
+document.getElementById('sexo').addEventListener('change', function() {
+  validateInput(this);
+  checkFields();
+});
+
+// Add event listener to the calculate button
+document.getElementById('calcular_button').addEventListener('click', function() {
+  var slide_1 = document.getElementById('slide_1');
+  var slide_2 = document.getElementById('slide_2');
+  var botao_zap = document.getElementById('whatsapp_button');
+  var emailInput = document.getElementById('email');
+
+  slide_1.classList.add('slide-out');
+  slide_1.classList.remove('active');
+  slide_2.classList.remove('slide-in');
+  slide_2.classList.add('active');
+  botao_zap.classList.add('d-none');
+
+  emailInput.focus();
+});
+
+function checkFieldsSlide2() {
+    var emailInput = document.getElementById('email');
+    var email = emailInput.value;
+    var celular = document.getElementById('celular').value;
+
+    var agendar_button = document.querySelector('#slide_2 .btn');
+
+    // This is based on the Brazilian celular number format "(##) ####-####"
+    if ((email === "" || validateEmail(email)) && celular.length == 14) {
+        agendar_button.classList.remove("disabled");
+
+        // If the email is valid or empty, remove the error class
+        emailInput.classList.remove("is-invalid");
+    } else {
+        if (!agendar_button.classList.contains("disabled")) {
+            agendar_button.classList.add("disabled");
+        }
+
+        // If the email is not valid and not empty, add the error class
+        if (email !== "" && !validateEmail(email)) {
+            emailInput.classList.add("is-invalid");
+        }
+    }
+}
+
+function validateEmail(email) {
+    var re = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    return re.test(email);
+}
+
+document.getElementById('email').addEventListener('blur', checkFieldsSlide2);
+document.getElementById('celular').addEventListener('input', checkFieldsSlide2);
 
 function avaliacao(){
     
@@ -314,61 +395,66 @@ function formatDate(input) {
     return new Date(year, month, day);
 }
 
-var validationFail = false;
+function validatePeso() {
+    var peso = $("#peso").val();
+    var pesoError = $("#peso").siblings(".invalid-feedback");
 
-// Peso (weight) mask and validation
-$("#peso").on("blur", function() {
-    var peso = $(this).val();
-    if (!validationFail && peso && (peso < 40 || peso > 300)) {
-        alert("Por favor, insira um peso válido. (40kg a 300kg)");
-        $(this).val("");
-        validationFail = true;
+    if (peso && (peso < 40 || peso > 300)) {
+        pesoError.text("Peso inválido.");
+        $("#peso").addClass("is-invalid");
+        return false;
     } else {
-        validationFail = false;
+        pesoError.text("");
+        $("#peso").removeClass("is-invalid");
+        return true;
     }
-});
+}
 
-// Altura (height) mask and validation
-$("#altura").mask("0.00").on("blur", function() {
-    var altura = $(this).val();
-    if (!validationFail && altura && (altura < 1.20 || altura > 2.30)) {
-        alert("Por favor, insira uma altura válida. (1.20 - 2.30)");
-        $(this).val("");
-        validationFail = true;
+function validateAltura() {
+    var altura = $("#altura").val();
+    var alturaError = $("#altura").siblings(".invalid-feedback");
+
+    if (altura && (altura < 1.20 || altura > 2.30)) {
+        alturaError.text("Altura inválida.");
+        $("#altura").addClass("is-invalid");
+        return false;
     } else {
-        validationFail = false;
+        alturaError.text("");
+        $("#altura").removeClass("is-invalid");
+        return true;
     }
-});
+}
 
-// Data de nascimento (date of birth) mask and validation
-$("#data_nascimento").mask("00/00/0000").on("blur", function() {
-    var dataNascimento = $(this).val();
+function validateDataNascimento() {
+    var dataNascimento = $("#data_nascimento").val();
+    var dataNascimentoError = $("#data_nascimento").siblings(".invalid-feedback");
+
     var dateParts = dataNascimento.split("/");
-    var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
+    var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
     var currentDate = new Date();
     var age = currentDate.getFullYear() - dateObject.getFullYear();
 
-    if (!validationFail && dataNascimento && (isNaN(dateObject.getTime()) || dateObject > currentDate || age < 10 || age > 120)) {
-        alert("Por favor, insira uma data de nascimento válida (idade entre 10 e 120 anos).");
-        $(this).val("");
-        validationFail = true;
+    if (dataNascimento && (isNaN(dateObject.getTime()) || dateObject > currentDate || age < 10 || age > 120)) {
+        dataNascimentoError.text("Data de nascimento inválida.");
+        $("#data_nascimento").addClass("is-invalid");
+        return false;
     } else {
-        validationFail = false;
+        dataNascimentoError.text("");
+        $("#data_nascimento").removeClass("is-invalid");
+        return true;
     }
-});
+}
 
-
-// Celular (phone) mask
+$("#peso").on("blur", validatePeso);
+$("#altura").mask("0.00").on("blur", validateAltura);
+$("#data_nascimento").mask("00/00/0000").on("blur", validateDataNascimento);
 $("#celular").mask("(00)00000-0000");
 
 $("#email").on("blur", function() {
     var email = $(this).val();
     var re = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
     if (!re.test(email)) {
-        setTimeout(function() {
-            alert("Insira um email válido.");
             $("#email").focus();
-        }, 0);
     }
 });
 
