@@ -131,8 +131,8 @@
                     <label for="sexo" class="form-label">Sexo</label>
                         <select class="form-select" id="sexo">
                             <option value="" selected hidden>Escolha...</option>
-                            <option value="feminino">Feminino</option>
-                            <option value="masculino">Masculino</option>
+                            <option value="f">Feminino</option>
+                            <option value="m">Masculino</option>
                         </select>
                 </div>
         </div>
@@ -161,11 +161,11 @@
                 <div class="row">
                     <div class="col d-flex align-items-center flex-column">
                         <p class="fs-6 mb-2 mx-2 text-center text-dark">Meta Saudável:</p> 
-                        <span class="placeholder w-75 mb-3">kg</span>
+                        <span class="placeholder w-75 mb-3" id="meta_saudavel"></span>
                     </div>
                     <div class="col d-flex align-items-center flex-column">
-                        <p class="fs-6 mb-2 mx-2 text-center text-dark">Tempo de Dieta:</p> 
-                        <span class="placeholder w-75 mb-3">kg</span>
+                        <p class="fs-6 mb-2 mx-2 text-center text-dark" >Tempo de Dieta:</p> 
+                        <span class="placeholder w-75 mb-3" id="estimativa"></span>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,167 @@
               </button>
             </a>
           </div>
+
+          <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="confirmModalLabel">Está correto?</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p id="modalEmail"></p>
+                  <p id="modalPhone"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="avaliacao()">Confirmar</button>
+                </div>
+              </div>
+            </div>
+        </div>  
 </main>
+<script>
+
+//FALTA: LIDAR COM CASOS DE PESSOAS MAGRAS, LIDAR COM CORRIGIR EMAIL ERRADO, LIGAR COM , E NAO PONTO
+function avaliacao() {
+
+const date = document.getElementById("data_nascimento").value;
+const altura = document.getElementById("altura").value * 100;
+const sexo = document.getElementById("sexo").value;
+const peso = document.getElementById("peso").value;
+
+if (!date || !altura || !sexo || !peso) {
+    alert("Preencha todos os campos");
+    return
+}
+
+const idade = calculateAge(date);
+const imc = Math.round(peso / Math.pow(altura/100,2));
+let minIMC, maxIMC, targetIMC, minBW, maxBW, targetBW;
+
+if (idade < 60){
+    if (sexo == 'm'){
+        minIMC = 20.7;
+        maxIMC = 26.4;
+        targetIMC = 23.55;
+    } else if (sexo == 'f'){
+        minIMC = 19.1;
+        maxIMC = 25.8;
+        targetIMC = 22.45;
+    }
+} else if (idade >= 60){
+    minIMC = 22;
+    maxIMC = 27;
+    targetIMC = 24.5;
+}
+
+//console.log(`minIMC: ${minIMC}, maxIMC: ${maxIMC}, targetIMC: ${targetIMC}`);
+
+minBW = 2.2 * minIMC + 3.5 * minIMC * (altura / 100 - 1.5);
+maxBW = 2.2 * maxIMC + 3.5 * maxIMC * (altura / 100 - 1.5);
+targetBW = 2.2 * targetIMC + 3.5 * targetIMC * (altura / 100 - 1.5);
+
+console.log(`minBW: ${minBW}, maxBW: ${maxBW}, targetBW: ${targetBW}`);
+
+let multiplicador_peso;
+if(imc < 30){
+    multiplicador_peso = 0.1;
+} else if (imc >= 30 && imc <= 34.9){
+    multiplicador_peso = 0.25;
+} else if (imc >= 35 && imc <= 39.9){
+    multiplicador_peso = 0.3;
+} else if (imc >= 40){
+    multiplicador_peso = 0.35;
+}
+
+//console.log(`multiplicador_peso: ${multiplicador_peso}`);
+
+const adjBW = Math.round(targetBW + multiplicador_peso * (peso - targetBW));
+const adjmaxBW = Math.round(maxBW + multiplicador_peso * (peso - maxBW));
+const estimativa = calc_estimativa(idade, altura, sexo, peso, adjBW);
+
+//console.log(`adjBW: ${adjBW}, adjmaxBW: ${adjmaxBW}, estimativa: ${estimativa}`);
+
+const meta_elem = document.getElementById("meta_saudavel");
+const estimativa_elem = document.getElementById("estimativa");
+
+meta_elem.textContent = adjBW + " a " + adjmaxBW + " kg";
+estimativa_elem.textContent = estimativa + " meses";
+
+meta_elem.classList.remove('placeholder');
+estimativa_elem.classList.remove('placeholder');
+}
+
+
+function calc_estimativa(idade, altura, sexo, peso, meta){
+
+    let geb;
+
+    if (idade >= 10 && idade <= 18){
+        if (sexo == 'm'){
+            geb = (0.113 * peso + 1.689) * 239;
+        }
+        else if (sexo == 'f'){
+            geb = (0.063 * peso + 2.466) * 239;
+        }
+    }
+    else if (idade >= 19 && idade <= 30){
+        if (sexo == 'm'){
+            geb = (0.056 * peso + 2.8) * 239;
+        }
+        else if (sexo == 'f'){
+            geb = (0.048 * peso + 2.562) * 239;
+        }
+    }
+    else if (idade >= 31 && idade <= 99){
+        if (sexo == 'm'){
+            geb = (0.046 * peso + 3.16) * 239;
+        }
+        else if (sexo == 'f'){
+            geb = (0.048 * peso + 2.448) * 239;
+        }
+    }
+
+geb = geb * (90 / 100);
+
+    if(sexo=='f'){
+        var baseline_ER = 430.29 - 12.86 * idade + 12.19 * altura + 4.066 * peso + 0.043 * Math.pow(peso,2); //Estimativa da necessidade de energia em mulheres
+        if(baseline_ER<2346){
+            var prev_mensal = -0.009239509 * idade - 0.001061759 * baseline_ER; //formula de estimativa para mulheres
+            var erro = 0.70569311;
+        }
+        else{
+            var prev_mensal = -0.001206311 * baseline_ER;  //formula de estimativa para mulheres
+            var erro = 0.782154319;
+        }
+    }else if(sexo=='m'){
+        var baseline_ER = 892.721 - 16.7 * idade + 1.29 * altura + 42.9 * peso - 0.11435 * Math.pow(peso,2); //Estimativa da necessidade de energia em homens
+        var prev_mensal = -0.001382573 * baseline_ER; //formula de estimativa para homens
+        var erro = 1.271735292;
+    }
+
+    const estimativa = Math.round(((meta - peso) / prev_mensal));
+    const estimativa_min = Math.round(((meta - peso) / (prev_mensal - erro)));
+
+    return (estimativa_min + " a " + estimativa);
+
+}
+
+function calculateAge(dateString) {
+    const dateParts = dateString.split("/");
+    const birthDate = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+
+</script>
 </body>
 <footer>
 
@@ -275,30 +435,51 @@ document.getElementById('calcular_button').addEventListener('click', function() 
   emailInput.focus();
 });
 
-function checkFieldsSlide2() {
+/*****    VALIDACOES      ******/
+
+function validateEmailField() {
     var emailInput = document.getElementById('email');
     var email = emailInput.value;
+
+    if (email === "" || validateEmail(email)) {
+        emailInput.classList.remove("is-invalid");
+        return true;
+    } else {
+        emailInput.classList.add("is-invalid");
+        return false;
+    }
+}
+
+function validateCelularField() {
     var celular = document.getElementById('celular').value;
 
+    // This is based on the Brazilian celular number format "(##) ####-####"
+    if (celular.length == 14) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkFieldsSlide2() {
     var agendar_button = document.querySelector('#slide_2 .btn');
 
-    // This is based on the Brazilian celular number format "(##) ####-####"
-    if ((email === "" || validateEmail(email)) && celular.length == 14) {
+    var isEmailValid = validateEmailField();
+    var isCelularValid = validateCelularField();
+
+    if (isEmailValid && isCelularValid) {
         agendar_button.classList.remove("disabled");
 
-        // If the email is valid or empty, remove the error class
-        emailInput.classList.remove("is-invalid");
+        document.getElementById('modalEmail').innerText = document.getElementById('email').value;
+        document.getElementById('modalPhone').innerText = document.getElementById('celular').value;
+        $('#confirmModal').modal('show');
     } else {
         if (!agendar_button.classList.contains("disabled")) {
             agendar_button.classList.add("disabled");
         }
-
-        // If the email is not valid and not empty, add the error class
-        if (email !== "" && !validateEmail(email)) {
-            emailInput.classList.add("is-invalid");
-        }
     }
 }
+
 
 function validateEmail(email) {
     var re = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -307,83 +488,6 @@ function validateEmail(email) {
 
 document.getElementById('email').addEventListener('blur', checkFieldsSlide2);
 document.getElementById('celular').addEventListener('input', checkFieldsSlide2);
-
-function avaliacao(){
-    
-    if(document.getElementById("data_nascimento").value === "") return alert("Data de Nascimento inválida");
-        var date = formatDate(document.getElementById("data_nascimento").value);
-        var altura = document.getElementById("altura").value;
-        var sexo = document.getElementById("sexo").value;
-        var peso = document.getElementById("peso").value;
-
-        var idade = Math.floor((new Date() - date) / 3.15576e+10);
-        var imc = Math.round(peso / Math.pow(altura/100,2));
-
-    if (idade < 60){
-        if (sexo == 'm'){
-            var minIMC = 20.7;
-            var maxIMC = 26.4;
-            var targetIMC = 23.55;
-            var minBW = 2.2 * minIMC + 3.5 * minIMC * (altura / 100 - 1.5);
-            var maxBW = 2.2 * maxIMC + 3.5 * maxIMC * (altura / 100 - 1.5);
-            var targetBW = 2.2 * targetIMC + 3.5 * targetIMC * (altura / 100 - 1.5);
-         }
-        else if (sexo == 'f'){
-            var minIMC = 19.1;
-            var maxIMC = 25.8;
-            var targetIMC = 22.45;
-            var minBW = 2.2 * minIMC + 3.5 * minIMC * (altura / 100 - 1.5);
-            var maxBW = 2.2 * maxIMC + 3.5 * maxIMC * (altura / 100 - 1.5);
-            var targetBW = 2.2 * targetIMC + 3.5 * targetIMC * (altura / 100 - 1.5);
-        }
-    }else if (idade >= 60){
-        var minIMC = 22;
-        var maxIMC = 27;
-        var targetIMC = 24.5;
-        var minBW = 2.2 * minIMC + 3.5 * minIMC * (altura / 100 - 1.5);
-        var maxBW = 2.2 * maxIMC + 3.5 * maxIMC * (altura / 100 - 1.5);
-        var targetBW = 2.2 * targetIMC + 3.5 * targetIMC * (altura / 100 - 1.5);
-    }
-
-    if(imc < 30){
-        var multiplicador_peso = 0.1;
-    }
-    else if (imc >= 30 && imc <= 34.9){
-        var multiplicador_peso = 0.25;
-    }
-    else if (imc >= 35 && imc <= 39.9){
-        var multiplicador_peso = 0.3;
-    }
-    else if (imc >= 40){
-        var multiplicador_peso = 0.35;
-    }
-
-    var adjminBW = Math.round(minBW + (multiplicador_peso * 1.2) * (peso - minBW));
-    var adjmaxBW = Math.round(maxBW + multiplicador_peso * (peso - maxBW));
-    var adjBW = Math.round(targetBW + multiplicador_peso * (peso - targetBW));
-
-    document.getElementById("intervalo_meta").innerHTML = "Meta sugerida: " + adjBW + " a " + adjmaxBW + " | Padrão: " + Math.round((adjBW+adjmaxBW)/2) + " | Mínimo: " + adjminBW;
-
- var targetDiv = document.getElementById("calculo_estimativa");
-  if (targetDiv.style.display === "none") {
-    targetDiv.style.display = "block";
-    document.getElementById("meta_escolhida").focus();
-  } else {
-    targetDiv.style.display = "none";
-  }
-
-
-document.getElementById("peso").removeEventListener("keypress", listener);
-document.getElementById("meta_escolhida").addEventListener("keypress", function(event) {
-    if (event.keyCode === 13) {
-        event.stopPropagation();
-        document.getElementById("gerar_estimativa").click();
-    }
-});
-
-}
-
-//VALIDACOES
 
 function formatDate(input) {
     var parts = input.split("/");
@@ -456,8 +560,8 @@ $("#email").on("blur", function() {
     }
 });
 
-
 });
+
 </script>
 
 <!-- Main Theme Script -->
