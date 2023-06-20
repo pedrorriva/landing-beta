@@ -160,13 +160,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col d-flex align-items-center flex-column">
-                        <p class="fs-6 mb-2 mx-2 text-center text-dark">Meta Saudável:</p> 
-                        <span class="placeholder w-75 mb-3" id="meta_saudavel"></span>
+                        <p class="fs-6 mb-2 mx-2 text-center text-dark">Meta</p> 
+                        <div class="placeholder w-75 mb-3 d-flex align-items-center justify-content-center" id="meta_saudavel"></div>
                     </div>
                     <div class="col d-flex align-items-center flex-column">
-                        <p class="fs-6 mb-2 mx-2 text-center text-dark" >Tempo de Dieta:</p> 
-                        <span class="placeholder w-75 mb-3" id="estimativa"></span>
-                    </div>
+                        <p class="fs-6 mb-2 mx-2 text-center text-dark" >Previsão</p> 
+                        <div class="placeholder w-75 mb-3 d-flex align-items-center justify-content-center" id="estimativa"></div>
+                    </div>                                       
                 </div>
             </div>
 
@@ -210,7 +210,7 @@
 </main>
 <script>
 
-//FALTA: LIDAR COM CASOS DE PESSOAS MAGRAS, LIDAR COM CORRIGIR EMAIL ERRADO, LIGAR COM , E NAO PONTO
+//FALTA: LIDAR COM CASOS DE PESSOAS MAGRAS
 function avaliacao() {
 
 const date = document.getElementById("data_nascimento").value;
@@ -249,7 +249,7 @@ minBW = 2.2 * minIMC + 3.5 * minIMC * (altura / 100 - 1.5);
 maxBW = 2.2 * maxIMC + 3.5 * maxIMC * (altura / 100 - 1.5);
 targetBW = 2.2 * targetIMC + 3.5 * targetIMC * (altura / 100 - 1.5);
 
-console.log(`minBW: ${minBW}, maxBW: ${maxBW}, targetBW: ${targetBW}`);
+//console.log(`minBW: ${minBW}, maxBW: ${maxBW}, targetBW: ${targetBW}`);
 
 let multiplicador_peso;
 if(imc < 30){
@@ -277,7 +277,9 @@ meta_elem.textContent = adjBW + " a " + adjmaxBW + " kg";
 estimativa_elem.textContent = estimativa + " meses";
 
 meta_elem.classList.remove('placeholder');
+meta_elem.classList.remove('w-75');
 estimativa_elem.classList.remove('placeholder');
+estimativa_elem.classList.remove('w-75');
 }
 
 
