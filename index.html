@@ -22,11 +22,36 @@
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
+
+<script type="text/javascript">
+  window.addEventListener('DOMContentLoaded', function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var isOnline = urlParams.get('online');
+    
+    //console.log('Online parameter:', isOnline);
+
+    if (isOnline === 'true') {
+      var elems = document.querySelectorAll('.is-presencial');
+      //console.log('Found elements with class is-presencial:', elems);
+      for(var i = 0; i < elems.length; i++) {
+        elems[i].style.display = 'none';
+        //console.log('Hid element:', elems[i]);
+      }
+    } else {
+      var elems = document.querySelectorAll('.is-online');
+      //console.log('Found elements with class is-online:', elems);
+      for(var i = 0; i < elems.length; i++) {
+        elems[i].style.display = 'none';
+        //console.log('Hid element:', elems[i]);
+      }
+    }
+  });
+</script>
+
+
+
 <style>
 
-  .is-online{
-    display:none !important;
-  }
 
   .container-hero {
     padding-bottom: 2rem;
@@ -323,16 +348,16 @@
     <div class="col-md-6-hero offset-md-1-hero">  
       <div class="d-flex-hero flex-row-hero align-items-center-hero justify-content-center-hero">
         <div class="overflow-hidden-hero rounded-hero" style="position: relative; z-index: 1;">
-          <picture class="is-presencial">
+          <picture>
             <source srcset="assets/img/landing/medical/Nutri.avif" type="image/avif">
             <source srcset="assets/img/landing/medical/Nutri.webp" type="image/webp">
-            <img src="assets/img/landing/medical/Nutri.jpg" class="img-hero" alt="Nutricionista" width="252" height="335  " >
+            <img src="assets/img/landing/medical/Nutri.jpg" class="img-hero" alt="Nutricionista" width="252" height="335" >
           </picture>
-          <picture class="is-online">
+          <!--<picture class="is-online">
             <source srcset="assets/img/landing/medical/Nutri-online.avif" type="image/avif">
             <source srcset="assets/img/landing/medical/Nutri-online.webp" type="image/webp">
-            <img src="assets/img/landing/medical/Nutri-online.jpg" class="img-hero" alt="Nutricionista" width="252" height="335  " >
-          </picture>
+            <img src="assets/img/landing/medical/Nutri-online.jpg" class="img-hero" alt="Nutricionista" width="252" height="335" >
+          </picture>-->
         </div>
         <div class="d-flex-hero flex-column-hero card-container">
           <div class="my-3-hero bg-white-hero card-hero d-flex-hero flex-column-hero align-items-center-hero pb-2">
