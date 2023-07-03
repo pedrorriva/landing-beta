@@ -22,31 +22,6 @@
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var isOnline = urlParams.get('online');
-    
-    console.log('Online parameter:', isOnline);
-
-    if (isOnline === 'true') {
-      var elems = document.querySelectorAll('.is-presencial');
-      console.log('Found elements with class is-presencial:', elems);
-      for(var i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-        console.log('Hid element:', elems[i]);
-      }
-    } else {
-      var elems = document.querySelectorAll('.is-online');
-      console.log('Found elements with class is-online:', elems);
-      for(var i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-        console.log('Hid element:', elems[i]);
-      }
-    }
-  });
-</script>
-
 <style>
   .container-hero {
     padding-bottom: 2rem;
@@ -248,6 +223,31 @@
 
 </head>
 <body>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var isOnline = urlParams.get('online');
+      
+      console.log('Online parameter:', isOnline);
+  
+      if (isOnline === 'true') {
+        var elems = document.querySelectorAll('.is-presencial');
+        console.log('Found elements with class is-presencial:', elems);
+        for(var i = 0; i < elems.length; i++) {
+          elems[i].style.display = 'none';
+          console.log('Hid element:', elems[i]);
+        }
+      } else {
+        var elems = document.querySelectorAll('.is-online');
+        console.log('Found elements with class is-online:', elems);
+        for(var i = 0; i < elems.length; i++) {
+          elems[i].style.display = 'none';
+          console.log('Hid element:', elems[i]);
+        }
+      }
+    });
+  </script>
 
     <main class="page-wrapper data-scroll">
 
