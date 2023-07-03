@@ -226,33 +226,6 @@
 
 
     <main class="page-wrapper data-scroll">
-      
-  <script>
-    console.log("Test");
-        window.addEventListener('DOMContentLoaded', function() {
-          console.log("Test");
-          var urlParams = new URLSearchParams(window.location.search);
-          var isOnline = urlParams.get('online');
-          
-          console.log('Online parameter:', isOnline);
-      
-          if (isOnline === 'true') {
-            var elems = document.querySelectorAll('.is-presencial');
-            console.log('Found elements with class is-presencial:', elems);
-            for(var i = 0; i < elems.length; i++) {
-              elems[i].style.display = 'none';
-              console.log('Hid element:', elems[i]);
-            }
-          } else {
-            var elems = document.querySelectorAll('.is-online');
-            console.log('Found elements with class is-online:', elems);
-            for(var i = 0; i < elems.length; i++) {
-              elems[i].style.display = 'none';
-              console.log('Hid element:', elems[i]);
-            }
-          }
-        });
-      </script>
 
       <!-- mock navbar -->
       <div id="loadingNavbar" class="navbar-mock">
@@ -1150,6 +1123,33 @@
         </div>
 
         <script>
+
+
+(function handleOnlineParameter() {
+  console.log("handleOnlineParameter");
+  var urlParams = new URLSearchParams(window.location.search);
+  var isOnline = urlParams.get('online');
+  
+  console.log('Online parameter:', isOnline);
+
+  if (isOnline === 'true') {
+    var elems = document.querySelectorAll('.is-presencial');
+    console.log('Found elements with class is-presencial:', elems);
+    for(var i = 0; i < elems.length; i++) {
+      elems[i].style.display = 'none';
+      console.log('Hid element:', elems[i]);
+    }
+  } else {
+    var elems = document.querySelectorAll('.is-online');
+    console.log('Found elements with class is-online:', elems);
+    for(var i = 0; i < elems.length; i++) {
+      elems[i].style.display = 'none';
+      console.log('Hid element:', elems[i]);
+    }
+  }
+})();
+
+
           // Sticky WhatsApp Button
           (function stickyWhatsAppBtn() {
             let online = new URLSearchParams(window.location.search).get('online');
@@ -1171,6 +1171,7 @@
               }
             });
           })();
+          
         </script>
         
     
