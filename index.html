@@ -22,7 +22,7 @@
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
-<script type="text/javascript">
+<script>
   window.addEventListener('DOMContentLoaded', function() {
     var urlParams = new URLSearchParams(window.location.search);
     var isOnline = urlParams.get('online');
@@ -1153,7 +1153,7 @@
             let btnId = online === 'true' ? 'whatsappBtn2' : 'whatsappBtn'; //necessario por serem 2 botoes
             
             let whatsappBtn = document.getElementById(btnId);
-            console.log(whatsappBtn);
+            //console.log(whatsappBtn);
             if (whatsappBtn === null) return;
         
             let scrollOffset = 500;
