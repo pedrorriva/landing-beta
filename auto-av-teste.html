@@ -293,7 +293,7 @@ function registrar_lead(data_nasc, sexo){
     const data = { data_nasc, sexo, email, celular };
 
     // Send a POST request to your worker
-    fetch('http://localhost:8787', {
+    fetch('https://d1-leads.pedro-dietavitoria9154.workers.dev/api/insert', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
