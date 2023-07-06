@@ -23,6 +23,15 @@
 <meta name="theme-color" content="#ffffff">
 
 <style>
+/*
+.is-presencial, .is-online { 
+  display: none; /*inicialmente, tudo escondido
+}*/
+/*
+.show-presencial .is-presencial, .show-online .is-online {
+  display: block; /*HTMLRewriter add no body o show-, e agora o conjunto é display:block
+}*/
+
   .container-hero {
     padding-bottom: 2rem;
     margin-bottom: 1.5rem;
@@ -219,14 +228,12 @@
     color: #33354d;
     align-items: center;
   }
-  </style>
 
+  </style>
 </head>
 <body>
 
-
     <main class="page-wrapper data-scroll">
-
       <!-- mock navbar -->
       <div id="loadingNavbar" class="navbar-mock">
         <picture>
@@ -345,11 +352,17 @@
           </div>
           <div class="my-3-hero bg-white-hero card-hero d-flex-hero flex-column-hero align-items-center-hero pb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" style="fill: #ec2d53bb;margin-top:5px;"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg> <!--<i class="bx bx-calendar text-primary pt-2 opacity-95" style="font-size: 45px;"></i>-->
-            <span class="text-center-hero text-dark-hero fs-md-hero ps-2-hero pe-1-hero">Previsão de<br> Emagrecimento</span>
+            <span class="text-center-hero text-dark-hero fs-md-hero ps-2-hero pe-1-hero">Prazo de<br> Emagrecimento</span>
           </div>
         </div>
       </div>
-      <div class="text-center-hero mt-2-hero">
+      <!--<div class="card text-center is-online" style="border: none;">
+        <div class="card-body">
+          <p class="card-text">Faça o teste de 3 minutos <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(24, 24, 24, 0.677)"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M13 7h-2v6h6v-2h-4z"></path></svg></p>
+          <a href="auto-av.html" class="btn-hero">Avaliação Online ➔</a>
+        </div>
+      </div>-->
+      <div class="text-center-hero mt-2-hero is-presencial">
         <a href="https://sistema.emagrecimentosantos.com.br/facebook_conversions-master/redirect_pixel_lead.php"
          class="btn-hero">Fale com a Nutri
          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);margin-left: 5px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263"></path></svg><!--<i class="bx bxl-whatsapp ms-1 fs-3"></i>-->
@@ -426,6 +439,7 @@
     </div>
   </div>
   <p class="text-grey opacity-90 text-center">Assista ao vídeo explicativo</p>
+  
   <p class="fs-2 text-center mb-1 mt-3" style="color:#3d3d3d">Reeducação Alimentar
   <p class="text-primary fs-3 text-center mt-n1 is-online">Sem sair de casa!</p>
   <p class="text-primary fs-3 text-center mt-n1 is-presencial">com apoio profissional</p>
